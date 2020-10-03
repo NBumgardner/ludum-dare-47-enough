@@ -12,6 +12,6 @@ position = Vector2( 500, 300 )
 [node name="Market_Area_Welcome" parent="." instance=ExtResource( 2 )]
 position = Vector2( 500, 200 )
 
-[node name="Node2D" parent="." instance=ExtResource( 3 )]
+[node name="HUD" parent="." instance=ExtResource( 3 )]
 [connection signal="body_entered" from="Market_Area_Welcome" to="Player" method="_on_Market_Area_Welcome_body_entered"]
 [connection signal="body_exited" from="Market_Area_Welcome" to="Player" method="_on_Market_Area_Welcome_body_exited"]
