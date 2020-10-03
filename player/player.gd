@@ -3,7 +3,9 @@ extends KinematicBody2D
 const ACCELERATION = 1500
 const MAX_SPEED = 400
 const INCOME_FROM_MARKET_AREA_WELCOME_STAR_COINS = 2
+const TAX_STAR_COINS = -1
 
+var is_player_asleep = true
 var motion = Vector2()
 
 var player_is_inside = []
@@ -11,15 +13,22 @@ var player_is_inside = []
 signal activate_market(body)
 signal set_star_coin_increase(amount)
 
-onready var player_variables = get_node("/root/player_variables")
+onready var player_variables = get_node("/root/PlayerVariables")
 
 
 # Player Movement methods
 func _physics_process(delta):
+	# Stop moving if player is out of money
+	if _is_player_out_of_money():
+		is_player_asleep = true
+		return
+
 	var axis = _get_input_axis()
 	if axis == Vector2.ZERO:
 		_apply_friction(ACCELERATION * delta)
 	else:
+		# Begin tax timer after the player begins to move.
+		_start_Tax_Timer()
 		_apply_movement(axis * ACCELERATION * delta)
 	motion = move_and_slide(motion)
 
@@ -45,6 +54,8 @@ func _get_input_axis():
 	)
 	return axis.normalized()
 
+func _is_player_out_of_money():
+	return player_variables.player_currency_star_coin <= 0
 
 # Market Area Welcome collision methods
 func _on_Market_Area_Welcome_body_entered(body):
@@ -72,3 +83,19 @@ func _deactivate_Market_Area_Welcome(body):
 	if (OS.is_debug_build()):
 		print("Player is in " + str(player_is_inside)
 			+ " after leaving " + str(body))
+
+
+# Logic for passive loss of star coin currency
+func _start_Tax_Timer():
+	if is_player_asleep:
+		is_player_asleep = false
+
+func _on_Tax_Timer_timeout():
+	if !is_player_asleep:
+		emit_signal(
+			"set_star_coin_increase",
+			TAX_STAR_COINS
+		)
+
+func _stop_Tax_Timer():
+	is_player_asleep = true
