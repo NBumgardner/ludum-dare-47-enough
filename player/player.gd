@@ -2,8 +2,16 @@ extends KinematicBody2D
 
 const ACCELERATION = 1500
 const MAX_SPEED = 400
+const INCOME_FROM_MARKET_AREA_WELCOME_STAR_COINS = 2
 
 var motion = Vector2()
+
+var player_is_inside = []
+
+signal activate_market(body)
+signal set_star_coin_increase(amount)
+
+onready var player_variables = get_node("/root/player_variables")
 
 
 # Player Movement methods
@@ -39,10 +47,28 @@ func _get_input_axis():
 
 
 # Market Area Welcome collision methods
-func _on_Market_Area_Welcome_body_entered(_body):
-	if (OS.is_debug_build()):
-		print("Welcome to the market!")
+func _on_Market_Area_Welcome_body_entered(body):
+	_activate_Market_Area_Welcome(body)
 
-func _on_Market_Area_Welcome_body_exited(_body):
+func _on_Market_Area_Welcome_body_exited(body):
+	_deactivate_Market_Area_Welcome(body)
+
+
+# Logic for Market Area Welcome
+func _activate_Market_Area_Welcome(body):
+	player_is_inside.push_back(body)
+	emit_signal(
+		"set_star_coin_increase",
+		INCOME_FROM_MARKET_AREA_WELCOME_STAR_COINS
+	)
+
 	if (OS.is_debug_build()):
-		print("Please come again!")
+		print("Player is in " + str(player_is_inside)
+			+ " after entering " + str(body))
+
+func _deactivate_Market_Area_Welcome(body):
+	player_is_inside.remove(player_is_inside.find(body))
+
+	if (OS.is_debug_build()):
+		print("Player is in " + str(player_is_inside)
+			+ " after leaving " + str(body))
