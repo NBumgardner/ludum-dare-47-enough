@@ -16,8 +16,12 @@ _global_script_class_icons={
 [application]
 
 config/name="ludum-dare-47-enough"
-run/main_scene="res://world.tscn"
+run/main_scene="res://main.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+PlayerVariables="*res://player_variables.gd"
 
 [rendering]
 
