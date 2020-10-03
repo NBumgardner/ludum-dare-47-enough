@@ -35,3 +35,13 @@ func _get_input_axis():
 		- int(Input.is_action_pressed("ui_up"))
 	)
 	return axis.normalized()
+
+
+# Market Area Welcome collision methods
+func _on_Market_Area_Welcome_body_entered(_body):
+	if (OS.is_debug_build()):
+		print("Welcome to the market!")
+
+func _on_Market_Area_Welcome_body_exited(_body):
+	if (OS.is_debug_build()):
+		print("Please come again!")
