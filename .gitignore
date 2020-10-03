@@ -1,3 +1,5 @@
+# Ignore build folder for YAML pipeline
+build
 
 # Godot-specific ignores
 .import/
