@@ -1,8 +1,10 @@
 extends KinematicBody2D
 
 const ACCELERATION = 1500
-const MAX_SPEED = 400
+const GAME_OVER_STAR_COIN_AMOUNT = 0
+const GAME_WIN_STAR_COIN_AMOUNT = 10
 const INCOME_FROM_MARKET_AREA_WELCOME_STAR_COINS = 2
+const MAX_SPEED = 400
 const TAX_STAR_COINS = -1
 
 var is_player_asleep = true
@@ -18,10 +20,14 @@ onready var player_variables = get_node("/root/PlayerVariables")
 
 # Player Movement methods
 func _physics_process(delta):
-	# Stop moving if player is out of money
+	# Stop timer and moving if player is out of money
 	if _is_player_out_of_money():
 		is_player_asleep = true
 		return
+
+	# Stop timer if player won
+	if _is_player_rich():
+		is_player_asleep = true
 
 	var axis = _get_input_axis()
 	if axis == Vector2.ZERO:
@@ -54,8 +60,6 @@ func _get_input_axis():
 	)
 	return axis.normalized()
 
-func _is_player_out_of_money():
-	return player_variables.player_currency_star_coin <= 0
 
 # Market Area Welcome collision methods
 func _on_Market_Area_Welcome_body_entered(body):
@@ -87,7 +91,7 @@ func _deactivate_Market_Area_Welcome(body):
 
 # Logic for passive loss of star coin currency
 func _start_Tax_Timer():
-	if is_player_asleep:
+	if is_player_asleep && !_is_player_rich():
 		is_player_asleep = false
 
 func _on_Tax_Timer_timeout():
@@ -99,3 +103,17 @@ func _on_Tax_Timer_timeout():
 
 func _stop_Tax_Timer():
 	is_player_asleep = true
+
+
+# Game Win or Lose Boolean Conditions
+func _is_player_out_of_money():
+	return (
+		player_variables.player_currency_star_coin
+		<= GAME_OVER_STAR_COIN_AMOUNT
+	)
+
+func _is_player_rich():
+	return (
+		player_variables.player_currency_star_coin
+		>= GAME_WIN_STAR_COIN_AMOUNT
+	)
