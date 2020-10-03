@@ -1,15 +1,16 @@
 extends KinematicBody2D
 
-const ACCELERATION = 750
-const DECELERATION = ACCELERATION * 2
+const ACCELERATION = 1500
 const MAX_SPEED = 400
 
 var motion = Vector2()
 
+
+# Player Movement methods
 func _physics_process(delta):
 	var axis = _get_input_axis()
 	if axis == Vector2.ZERO:
-		_apply_friction(DECELERATION * delta)
+		_apply_friction(ACCELERATION * delta)
 	else:
 		_apply_movement(axis * ACCELERATION * delta)
 	motion = move_and_slide(motion)
