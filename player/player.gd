@@ -6,6 +6,8 @@ const MAX_SPEED = 400
 
 var motion = Vector2()
 
+
+# Player Movement methods
 func _physics_process(delta):
 	var axis = _get_input_axis()
 	if axis == Vector2.ZERO:
