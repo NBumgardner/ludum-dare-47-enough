@@ -7,25 +7,11 @@ const GAME_OVER_WIN = "Congratulations!"
 const GAME_WIN_STAR_COIN_AMOUNT = 10
 
 
-onready var player_variables = get_node("/root/PlayerVariables")
+onready var game_over_conditions = get_node("/root/GameOverConditions")
 
 
 func _process(_delta):
-	if _is_player_rich():
-		text = GAME_OVER_WIN
-	elif _is_player_out_of_money():
-		text = GAME_OVER_LOSE
-
-
-# Game Win or Lose Boolean Conditions
-func _is_player_out_of_money():
-	return (
-		player_variables.player_currency_star_coin
-		<= GAME_OVER_STAR_COIN_AMOUNT
-	)
-
-func _is_player_rich():
-	return (
-		player_variables.player_currency_star_coin
-		>= GAME_WIN_STAR_COIN_AMOUNT
-	)
+	if game_over_conditions.is_player_rich():
+		text = game_over_conditions.GAME_OVER_WIN_TEXT
+	elif game_over_conditions.is_player_out_of_money():
+		text = game_over_conditions.GAME_OVER_LOSE_TEXT
