@@ -1,14 +1,18 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://market_area_welcome/collision-box.png" type="Texture" id=1]
 [ext_resource path="res://assets/star-coin.png" type="Texture" id=2]
 [ext_resource path="res://assets/checkmark.png" type="Texture" id=3]
+[ext_resource path="res://assets/fonts/Roboto/Roboto-Regular.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 65, 63.7923 )
 
-[sub_resource type="Animation" id=2]
-resource_name = "Fade Checkmark Animation"
+[sub_resource type="DynamicFont" id=2]
+size = 14
+font_data = ExtResource( 4 )
+
+[sub_resource type="Animation" id=3]
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("ColorRect:color:r")
 tracks/0/interp = 1
@@ -84,10 +88,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="TextureRect/MarginContainer/Vertical Sections"]
+[node name="Explanation" type="Label" parent="TextureRect/MarginContainer/Vertical Sections"]
 margin_right = 124.0
 margin_bottom = 68.0
 size_flags_vertical = 3
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Collect 2 Star Coins on Entry"
 autowrap = true
@@ -114,7 +119,7 @@ __meta__ = {
 }
 
 [node name="Fade In Out" type="AnimationPlayer" parent="TextureRect/MarginContainer/Vertical Sections/Active Checkmark"]
-"anims/Fade Checkmark Animation" = SubResource( 2 )
+"anims/Fade Checkmark Animation" = SubResource( 3 )
 
 [node name="Benefit Icons" type="HBoxContainer" parent="TextureRect/MarginContainer/Vertical Sections"]
 margin_top = 92.0

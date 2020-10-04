@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://hud/heart.png" type="Texture" id=1]
 [ext_resource path="res://hud/health-bar-empty.png" type="Texture" id=2]
@@ -10,6 +10,9 @@
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=2]
 font_data = ExtResource( 6 )
 
 [node name="GUI" type="MarginContainer"]
@@ -30,15 +33,6 @@ size_flags_vertical = 0
 custom_fonts/font = SubResource( 1 )
 align = 1
 script = ExtResource( 7 )
-
-[node name="Game Over Lose" type="Label" parent="."]
-visible = false
-margin_right = 984.0
-margin_bottom = 38.0
-size_flags_vertical = 0
-custom_fonts/font = SubResource( 1 )
-text = "Game Over"
-align = 1
 
 [node name="resources_container" type="HBoxContainer" parent="."]
 margin_right = 984.0
@@ -75,8 +69,9 @@ margin_right = 36.0
 margin_bottom = 32.0
 
 [node name="Number" type="Label" parent="resources_container/Counters/Star Coins"]
-margin_top = 9.0
-margin_bottom = 23.0
+margin_top = 6.0
+margin_bottom = 25.0
+custom_fonts/font = SubResource( 2 )
 script = ExtResource( 5 )
 
 [node name="Icon" type="TextureRect" parent="resources_container/Counters/Star Coins"]
