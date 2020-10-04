@@ -22,6 +22,7 @@ config/icon="res://icon.png"
 [autoload]
 
 PlayerVariables="*res://player_variables.gd"
+GameOverConditions="*res://game_over_conditions.gd"
 
 [rendering]
 
