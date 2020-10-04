@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/star-coin.png-78e3743cc4494d7bdd533f9a589ccfec.stex"
+path="res://.import/checkmark.png-5a88961c1c72d2a83fb11a78bf485998.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://hud/star-coin.png"
-dest_files=[ "res://.import/star-coin.png-78e3743cc4494d7bdd533f9a589ccfec.stex" ]
+source_file="res://assets/checkmark.png"
+dest_files=[ "res://.import/checkmark.png-5a88961c1c72d2a83fb11a78bf485998.stex" ]
 
 [params]
 

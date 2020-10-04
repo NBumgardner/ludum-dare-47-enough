@@ -72,6 +72,7 @@ func _on_Market_Area_Welcome_body_exited(body):
 # Logic for Market Area Welcome
 func _activate_Market_Area_Welcome(body):
 	player_is_inside.push_back(body)
+	emit_signal("activate_market", body)
 	emit_signal(
 		"set_star_coin_increase",
 		INCOME_FROM_MARKET_AREA_WELCOME_STAR_COINS
