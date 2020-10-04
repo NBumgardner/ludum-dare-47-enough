@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
 [ext_resource path="res://hud/hud.tscn" type="PackedScene" id=2]
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://market_area_welcome/market_area_welcome.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/double-coin.wav" type="AudioStream" id=5]
 
 [node name="Main" type="Node"]
 script = ExtResource( 1 )
@@ -18,6 +19,9 @@ position = Vector2( 500, 200 )
 
 [node name="Tax_Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="SFX_Add_2_Star_Coins" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
 [connection signal="activate_market" from="Player" to="." method="_on_Player_activate_market"]
 [connection signal="set_star_coin_increase" from="Player" to="." method="_on_Player_set_star_coin_increase"]
 [connection signal="body_entered" from="Market_Area_Welcome" to="Player" method="_on_Market_Area_Welcome_body_entered"]
