@@ -92,12 +92,17 @@ func _get_input_axis():
 
 # Market Area Bed collision method
 func _on_Market_Area_Bed_body_entered(body):
-	var minimum_star_coins = 0
 	var remaining_star_coins = (
 		player_variables.player_currency_star_coin
 		+ INCOME_FROM_MARKET_AREA_BED_STAR_COINS
 	)
-	if remaining_star_coins >= minimum_star_coins:
+	var can_afford = remaining_star_coins >= 0
+	var can_benefit = (
+		player_variables.player_current_health
+		< player_variables.INITIAL_MAX_HEALTH
+	)
+
+	if can_afford && can_benefit:
 		_activate_Market_Area_Bed(body)
 	else:
 		emit_signal("cannot_affort_market_area_bed", body)
