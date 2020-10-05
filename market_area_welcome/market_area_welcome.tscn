@@ -84,7 +84,7 @@ __meta__ = {
 }
 
 [node name="Vertical Sections" type="VBoxContainer" parent="TextureRect/MarginContainer"]
-margin_right = 124.0
+margin_right = 126.0
 margin_bottom = 142.0
 size_flags_vertical = 3
 __meta__ = {
@@ -92,7 +92,7 @@ __meta__ = {
 }
 
 [node name="Header Title" type="Label" parent="TextureRect/MarginContainer/Vertical Sections"]
-margin_right = 124.0
+margin_right = 126.0
 margin_bottom = 17.0
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 2 )
@@ -106,7 +106,7 @@ __meta__ = {
 
 [node name="Explanation" type="Label" parent="TextureRect/MarginContainer/Vertical Sections"]
 margin_top = 21.0
-margin_right = 124.0
+margin_right = 126.0
 margin_bottom = 38.0
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 2 )
@@ -115,9 +115,9 @@ text = "Gain 2 Star Coins"
 autowrap = true
 
 [node name="Active Checkmark" type="TextureRect" parent="TextureRect/MarginContainer/Vertical Sections"]
-margin_left = 54.0
+margin_left = 55.0
 margin_top = 42.0
-margin_right = 70.0
+margin_right = 71.0
 margin_bottom = 58.0
 size_flags_horizontal = 4
 texture = ExtResource( 3 )
@@ -140,7 +140,7 @@ __meta__ = {
 
 [node name="Cost Icons" type="HBoxContainer" parent="TextureRect/MarginContainer/Vertical Sections"]
 margin_top = 62.0
-margin_right = 124.0
+margin_right = 126.0
 margin_bottom = 100.0
 
 [node name="Label" type="Label" parent="TextureRect/MarginContainer/Vertical Sections/Cost Icons"]
@@ -153,7 +153,7 @@ valign = 1
 
 [node name="Benefit Icons" type="HBoxContainer" parent="TextureRect/MarginContainer/Vertical Sections"]
 margin_top = 104.0
-margin_right = 124.0
+margin_right = 126.0
 margin_bottom = 142.0
 
 [node name="Label" type="Label" parent="TextureRect/MarginContainer/Vertical Sections/Benefit Icons"]
