@@ -7,7 +7,7 @@
 [ext_resource path="res://assets/fonts/Roboto/Roboto-Medium.ttf" type="DynamicFontData" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 65, 63.7923 )
+extents = Vector2( 63.5327, 71.5393 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 14
@@ -63,13 +63,10 @@ font_data = ExtResource( 5 )
 z_index = -1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
+position = Vector2( 65.054, 69.5895 )
 shape = SubResource( 1 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
-margin_left = -64.0
-margin_top = -64.0
-margin_right = 64.0
 texture = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -84,7 +81,7 @@ __meta__ = {
 }
 
 [node name="Vertical Sections" type="VBoxContainer" parent="TextureRect/MarginContainer"]
-margin_right = 126.0
+margin_right = 124.0
 margin_bottom = 142.0
 size_flags_vertical = 3
 __meta__ = {
@@ -92,7 +89,7 @@ __meta__ = {
 }
 
 [node name="Header Title" type="Label" parent="TextureRect/MarginContainer/Vertical Sections"]
-margin_right = 126.0
+margin_right = 124.0
 margin_bottom = 17.0
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 2 )
@@ -106,7 +103,7 @@ __meta__ = {
 
 [node name="Explanation" type="Label" parent="TextureRect/MarginContainer/Vertical Sections"]
 margin_top = 21.0
-margin_right = 126.0
+margin_right = 124.0
 margin_bottom = 38.0
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 2 )
@@ -115,9 +112,9 @@ text = "Gain 2 Star Coins"
 autowrap = true
 
 [node name="Active Checkmark" type="TextureRect" parent="TextureRect/MarginContainer/Vertical Sections"]
-margin_left = 55.0
+margin_left = 54.0
 margin_top = 42.0
-margin_right = 71.0
+margin_right = 70.0
 margin_bottom = 58.0
 size_flags_horizontal = 4
 texture = ExtResource( 3 )
@@ -140,7 +137,7 @@ __meta__ = {
 
 [node name="Cost Icons" type="HBoxContainer" parent="TextureRect/MarginContainer/Vertical Sections"]
 margin_top = 62.0
-margin_right = 126.0
+margin_right = 124.0
 margin_bottom = 100.0
 
 [node name="Label" type="Label" parent="TextureRect/MarginContainer/Vertical Sections/Cost Icons"]
@@ -153,7 +150,7 @@ valign = 1
 
 [node name="Benefit Icons" type="HBoxContainer" parent="TextureRect/MarginContainer/Vertical Sections"]
 margin_top = 104.0
-margin_right = 126.0
+margin_right = 124.0
 margin_bottom = 142.0
 
 [node name="Label" type="Label" parent="TextureRect/MarginContainer/Vertical Sections/Benefit Icons"]
