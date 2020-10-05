@@ -154,12 +154,21 @@ func _on_Market_Area_Saw_body_entered(body):
 
 # Market Area Valentine collision method
 func _on_Market_Area_Valentine_body_entered(body):
-	var minimum_envelopes = 0
 	var remaining_envelopes = (
 		player_variables.player_currency_envelope
 		+ INCOME_FROM_MARKET_AREA_VALENTINE_ENVELOPES
 	)
-	if remaining_envelopes >= minimum_envelopes:
+	var can_afford = remaining_envelopes >= 0
+	var can_benefit = (
+		(
+			player_variables.player_current_health
+			< player_variables.INITIAL_MAX_HEALTH
+		) || (
+			player_variables.player_current_smile
+			< player_variables.INITIAL_MAX_SMILE
+		)
+	)
+	if can_afford && can_benefit:
 		_activate_Market_Area_Valentine(body)
 	else:
 		emit_signal("cannot_affort_market_area_valentine", body)
