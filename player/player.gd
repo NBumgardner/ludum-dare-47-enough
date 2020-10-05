@@ -18,7 +18,7 @@ const INCOME_FROM_MARKET_AREA_SAW_HEALTH = -1
 const INCOME_FROM_MARKET_AREA_SAW_SMILE = -1
 const INCOME_FROM_MARKET_AREA_SAW_STAR_COINS = 2
 const MAX_SPEED = 400
-const TAX_STAR_COINS = -1
+const TAX_HEALTH = -1
 
 var is_player_asleep = true
 var motion = Vector2()
@@ -50,10 +50,7 @@ onready var player_variables = get_node("/root/PlayerVariables")
 # Player Movement methods
 func _physics_process(delta):
 	# Stop timer and moving if player is out of money or health
-	if (
-		game_over_conditions.is_player_out_of_money()
-		|| game_over_conditions.is_player_out_of_health()
-	):
+	if game_over_conditions.is_player_out_of_health():
 		is_player_asleep = true
 		return
 
@@ -95,12 +92,17 @@ func _get_input_axis():
 
 # Market Area Bed collision method
 func _on_Market_Area_Bed_body_entered(body):
-	var minimum_star_coins = 0
 	var remaining_star_coins = (
 		player_variables.player_currency_star_coin
 		+ INCOME_FROM_MARKET_AREA_BED_STAR_COINS
 	)
-	if remaining_star_coins >= minimum_star_coins:
+	var can_afford = remaining_star_coins >= 0
+	var can_benefit = (
+		player_variables.player_current_health
+		< player_variables.INITIAL_MAX_HEALTH
+	)
+
+	if can_afford && can_benefit:
 		_activate_Market_Area_Bed(body)
 	else:
 		emit_signal("cannot_affort_market_area_bed", body)
@@ -152,12 +154,21 @@ func _on_Market_Area_Saw_body_entered(body):
 
 # Market Area Valentine collision method
 func _on_Market_Area_Valentine_body_entered(body):
-	var minimum_envelopes = 0
 	var remaining_envelopes = (
 		player_variables.player_currency_envelope
 		+ INCOME_FROM_MARKET_AREA_VALENTINE_ENVELOPES
 	)
-	if remaining_envelopes >= minimum_envelopes:
+	var can_afford = remaining_envelopes >= 0
+	var can_benefit = (
+		(
+			player_variables.player_current_health
+			< player_variables.INITIAL_MAX_HEALTH
+		) || (
+			player_variables.player_current_smile
+			< player_variables.INITIAL_MAX_SMILE
+		)
+	)
+	if can_afford && can_benefit:
 		_activate_Market_Area_Valentine(body)
 	else:
 		emit_signal("cannot_affort_market_area_valentine", body)
@@ -300,16 +311,16 @@ func _deactivate_Market_Area_Welcome(body):
 			+ " after leaving " + str(body))
 
 
-# Logic for passive loss of star coin currency
+# Logic for passive loss of health while smile is empty and game is not over
 func _start_Tax_Timer():
 	if is_player_asleep && !game_over_conditions.is_player_rich():
 		is_player_asleep = false
 
 func _on_Tax_Timer_timeout():
-	if !is_player_asleep:
+	if !is_player_asleep && player_variables.player_current_smile <= 0:
 		emit_signal(
-			"set_star_coin_increase",
-			TAX_STAR_COINS
+			"set_health_increase",
+			TAX_HEALTH
 		)
 
 func _stop_Tax_Timer():
