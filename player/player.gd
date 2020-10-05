@@ -81,7 +81,6 @@ func _on_Market_Area_Bed_body_entered(body):
 # Market Area Saw collision method
 func _on_Market_Area_Saw_body_entered(body):
 	_activate_Market_Area_Saw(body)
-	pass # Replace with function body.
 
 
 # Logic for Market Area Bed
