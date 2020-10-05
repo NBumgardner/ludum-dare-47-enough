@@ -8,6 +8,8 @@ const INCOME_FROM_MARKET_AREA_HOUSE_PIZZA_SLICES = 1
 const INCOME_FROM_MARKET_AREA_MAILBOX_HEALTH = -1
 const INCOME_FROM_MARKET_AREA_MAILBOX_STAR_COINS = -1
 const INCOME_FROM_MARKET_AREA_MAILBOX_ENVELOPES = 5
+const INCOME_FROM_MARKET_AREA_PIZZA_BOX_PIZZA_SLICES = -8
+const INCOME_FROM_MARKET_AREA_PIZZA_BOX_STAR_COINS = 20
 const INCOME_FROM_MARKET_AREA_VALENTINE_ENVELOPES = -1
 const INCOME_FROM_MARKET_AREA_VALENTINE_HEALTH = 1
 const INCOME_FROM_MARKET_AREA_VALENTINE_SMILE = 2
@@ -26,11 +28,13 @@ signal activate_market(body)
 signal activate_market_area_bed(body)
 signal activate_market_area_house(body)
 signal activate_market_area_mailbox(body)
+signal activate_market_area_pizza_box(body)
 signal activate_market_area_saw(body)
 signal activate_market_area_valentine(body)
 signal cannot_affort_market_area_bed(body)
 signal cannot_affort_market_area_house(body)
 signal cannot_affort_market_area_mailbox(body)
+signal cannot_affort_market_area_pizza_box(body)
 signal cannot_affort_market_area_valentine(body)
 signal set_envelope_increase(amount)
 signal set_health_increase(amount)
@@ -128,6 +132,19 @@ func _on_Market_Area_Mailbox_body_entered(body):
 		emit_signal("cannot_affort_market_area_mailbox", body)
 
 
+# Market Area Pizza Box collision method
+func _on_Market_Area_Pizza_Box_body_entered(body):
+	var minimum_pizza_slices = 0
+	var remaining_pizza_slices = (
+		player_variables.player_currency_pizza_slice
+		+ INCOME_FROM_MARKET_AREA_PIZZA_BOX_PIZZA_SLICES
+	)
+	if remaining_pizza_slices >= minimum_pizza_slices:
+		_activate_Market_Area_Pizza_Box(body)
+	else:
+		emit_signal("cannot_affort_market_area_pizza_box", body)
+
+
 # Market Area Saw collision method
 func _on_Market_Area_Saw_body_entered(body):
 	_activate_Market_Area_Saw(body)
@@ -197,6 +214,21 @@ func _activate_Market_Area_Mailbox(body):
 	if (OS.is_debug_build()):
 		print("Player entered " + str(body))
 
+
+# Logic for Market Area Pizza Box
+func _activate_Market_Area_Pizza_Box(body):
+	emit_signal("activate_market_area_pizza_box", body)
+	emit_signal(
+		"set_pizza_slice_increase",
+		INCOME_FROM_MARKET_AREA_PIZZA_BOX_PIZZA_SLICES
+	)
+	emit_signal(
+		"set_star_coin_increase",
+		INCOME_FROM_MARKET_AREA_PIZZA_BOX_STAR_COINS
+	)
+
+	if (OS.is_debug_build()):
+		print("Player entered " + str(body))
 
 
 # Logic for Market Area Saw

@@ -48,6 +48,11 @@ func _on_Player_activate_market_area_mailbox(body):
 	$SFX_Add_2_Star_Coins.play()
 
 
+func _on_Player_activate_market_area_pizza_box(body):
+	_show_market_area_pizza_box_active_checkmark()
+	$SFX_Add_2_Star_Coins.play()
+
+
 func _on_Player_activate_market_area_saw(_body):
 	_show_market_area_saw_active_checkmark()
 	$SFX_Add_2_Star_Coins.play()
@@ -84,6 +89,11 @@ func _show_market_area_mailbox_active_checkmark():
 		$"Market_Area_Mailbox/TextureRect/MarginContainer/Vertical Sections/Active Checkmark/Fade In Out"
 	).play("Fade Checkmark Animation")
 
+func _show_market_area_pizza_box_active_checkmark():
+	(
+		$"Market_Area_Pizza_Box/TextureRect/MarginContainer/Vertical Sections/Active Checkmark/Fade In Out"
+	).play("Fade Checkmark Animation")
+
 func _show_market_area_saw_active_checkmark():
 	(
 		$"Market_Area_Saw/TextureRect/MarginContainer/Vertical Sections/Active Checkmark/Fade In Out"
@@ -103,6 +113,9 @@ func _on_Player_cannot_affort_market_area_house(body):
 	$SFX_Cannot_Afford.play()
 
 func _on_Player_cannot_affort_market_area_mailbox(body):
+	$SFX_Cannot_Afford.play()
+
+func _on_Player_cannot_affort_market_area_pizza_box(body):
 	$SFX_Cannot_Afford.play()
 
 func _on_Player_cannot_affort_market_area_valentine(body):
