@@ -3,7 +3,7 @@ extends Node
 
 const GAME_OVER_LOSE_HEALTH_AMOUNT = 0
 const GAME_OVER_LOSE_TEXT = "Game Over"
-const GAME_OVER_WIN_STAR_COIN_AMOUNT = 10
+const GAME_OVER_WIN_STAR_COIN_AMOUNT = 100
 const GAME_OVER_WIN_TEXT = "Congratulations!"
 
 
