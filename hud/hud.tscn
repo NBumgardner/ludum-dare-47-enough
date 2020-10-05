@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://hud/heart.png" type="Texture" id=1]
 [ext_resource path="res://hud/health-bar-empty.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://hud/envelopes_number.gd" type="Script" id=9]
 [ext_resource path="res://hud/pizza_slices_number.gd" type="Script" id=10]
 [ext_resource path="res://assets/pizza-slice.png" type="Texture" id=11]
+[ext_resource path="res://hud/health_bar.gd" type="Script" id=12]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
@@ -62,6 +63,7 @@ margin_right = 292.0
 margin_bottom = 32.0
 texture_under = ExtResource( 2 )
 texture_progress = ExtResource( 3 )
+script = ExtResource( 12 )
 
 [node name="Counters" type="VBoxContainer" parent="resources_container"]
 margin_left = 948.0
