@@ -29,11 +29,11 @@ signal activate_market_area_mailbox(body)
 signal activate_market_area_pizza_box(body)
 signal activate_market_area_saw(body)
 signal activate_market_area_valentine(body)
-signal cannot_affort_market_area_bed(body)
-signal cannot_affort_market_area_house(body)
-signal cannot_affort_market_area_mailbox(body)
-signal cannot_affort_market_area_pizza_box(body)
-signal cannot_affort_market_area_valentine(body)
+signal cannot_afford_market_area_bed(body)
+signal cannot_afford_market_area_house(body)
+signal cannot_afford_market_area_mailbox(body)
+signal cannot_afford_market_area_pizza_box(body)
+signal cannot_afford_market_area_valentine(body)
 signal set_envelope_increase(amount)
 signal set_health_increase(amount)
 signal set_pizza_slice_increase(amount)
@@ -103,7 +103,7 @@ func _on_Market_Area_Bed_body_entered(body):
 	if can_afford && can_benefit:
 		_activate_Market_Area_Bed(body)
 	else:
-		emit_signal("cannot_affort_market_area_bed", body)
+		emit_signal("cannot_afford_market_area_bed", body)
 
 
 # Market Area House collision method
@@ -116,7 +116,7 @@ func _on_Market_Area_House_body_entered(body):
 	if remaining_envelopes >= minimum_envelopes:
 		_activate_Market_Area_House(body)
 	else:
-		emit_signal("cannot_affort_market_area_house", body)
+		emit_signal("cannot_afford_market_area_house", body)
 
 
 # Market Area Mailbox collision method
@@ -129,7 +129,7 @@ func _on_Market_Area_Mailbox_body_entered(body):
 	if remaining_star_coins >= minimum_star_coins:
 		_activate_Market_Area_Mailbox(body)
 	else:
-		emit_signal("cannot_affort_market_area_mailbox", body)
+		emit_signal("cannot_afford_market_area_mailbox", body)
 
 
 # Market Area Pizza Box collision method
@@ -142,7 +142,7 @@ func _on_Market_Area_Pizza_Box_body_entered(body):
 	if remaining_pizza_slices >= minimum_pizza_slices:
 		_activate_Market_Area_Pizza_Box(body)
 	else:
-		emit_signal("cannot_affort_market_area_pizza_box", body)
+		emit_signal("cannot_afford_market_area_pizza_box", body)
 
 
 # Market Area Saw collision method
@@ -169,7 +169,7 @@ func _on_Market_Area_Valentine_body_entered(body):
 	if can_afford && can_benefit:
 		_activate_Market_Area_Valentine(body)
 	else:
-		emit_signal("cannot_affort_market_area_valentine", body)
+		emit_signal("cannot_afford_market_area_valentine", body)
 
 
 # Logic for Market Area Bed
