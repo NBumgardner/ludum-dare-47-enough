@@ -13,6 +13,14 @@ func _on_Player_set_health_increase(amount):
 	)
 
 
+func _on_Player_set_envelope_increase(amount):
+	player_variables.player_currency_envelope += amount
+
+
+func _on_Player_set_pizza_slice_increase(amount):
+	player_variables.player_currency_pizza_slice += amount
+
+
 func _on_Player_set_smile_increase(amount):
 	player_variables.player_current_smile = clamp(
 		player_variables.player_current_smile + amount,
@@ -30,8 +38,28 @@ func _on_Player_activate_market_area_bed(body):
 	$SFX_Add_2_Star_Coins.play()
 
 
+func _on_Player_activate_market_area_house(body):
+	_show_market_area_house_active_checkmark()
+	$SFX_Add_2_Star_Coins.play()
+
+
+func _on_Player_activate_market_area_mailbox(body):
+	_show_market_area_mailbox_active_checkmark()
+	$SFX_Add_2_Star_Coins.play()
+
+
+func _on_Player_activate_market_area_pizza_box(body):
+	_show_market_area_pizza_box_active_checkmark()
+	$SFX_Add_2_Star_Coins.play()
+
+
 func _on_Player_activate_market_area_saw(_body):
 	_show_market_area_saw_active_checkmark()
+	$SFX_Add_2_Star_Coins.play()
+
+
+func _on_Player_activate_market_area_valentine(body):
+	_show_market_area_valentine_active_checkmark()
 	$SFX_Add_2_Star_Coins.play()
 
 
@@ -51,11 +79,44 @@ func _show_market_area_bed_active_checkmark():
 		$"Market_Area_Bed/TextureRect/MarginContainer/Vertical Sections/Active Checkmark/Fade In Out"
 	).play("Fade Checkmark Animation")
 
+func _show_market_area_house_active_checkmark():
+	(
+		$"Market_Area_House/TextureRect/MarginContainer/Vertical Sections/Active Checkmark/Fade In Out"
+	).play("Fade Checkmark Animation")
+
+func _show_market_area_mailbox_active_checkmark():
+	(
+		$"Market_Area_Mailbox/TextureRect/MarginContainer/Vertical Sections/Active Checkmark/Fade In Out"
+	).play("Fade Checkmark Animation")
+
+func _show_market_area_pizza_box_active_checkmark():
+	(
+		$"Market_Area_Pizza_Box/TextureRect/MarginContainer/Vertical Sections/Active Checkmark/Fade In Out"
+	).play("Fade Checkmark Animation")
+
 func _show_market_area_saw_active_checkmark():
 	(
 		$"Market_Area_Saw/TextureRect/MarginContainer/Vertical Sections/Active Checkmark/Fade In Out"
 	).play("Fade Checkmark Animation")
 
+func _show_market_area_valentine_active_checkmark():
+	(
+		$"Market_Area_Valentine/TextureRect/MarginContainer/Vertical Sections/Active Checkmark/Fade In Out"
+	).play("Fade Checkmark Animation")
 
+
+# Sound effect when player enters a market area the player cannot afford
 func _on_Player_cannot_affort_market_area_bed(body):
+	$SFX_Cannot_Afford.play()
+
+func _on_Player_cannot_affort_market_area_house(body):
+	$SFX_Cannot_Afford.play()
+
+func _on_Player_cannot_affort_market_area_mailbox(body):
+	$SFX_Cannot_Afford.play()
+
+func _on_Player_cannot_affort_market_area_pizza_box(body):
+	$SFX_Cannot_Afford.play()
+
+func _on_Player_cannot_affort_market_area_valentine(body):
 	$SFX_Cannot_Afford.play()
