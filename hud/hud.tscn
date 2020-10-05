@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://hud/heart.png" type="Texture" id=1]
 [ext_resource path="res://hud/health-bar-empty.png" type="Texture" id=2]
@@ -7,6 +7,10 @@
 [ext_resource path="res://hud/star_coins_number.gd" type="Script" id=5]
 [ext_resource path="res://assets/fonts/Roboto/Roboto-Medium.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://hud/game_over_text.gd" type="Script" id=7]
+[ext_resource path="res://assets/envelope.png" type="Texture" id=8]
+[ext_resource path="res://hud/envelopes_number.gd" type="Script" id=9]
+[ext_resource path="res://hud/pizza_slices_number.gd" type="Script" id=10]
+[ext_resource path="res://assets/pizza-slice.png" type="Texture" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
@@ -71,7 +75,9 @@ margin_bottom = 32.0
 [node name="Number" type="Label" parent="resources_container/Counters/Star Coins"]
 margin_top = 6.0
 margin_bottom = 25.0
+size_flags_horizontal = 3
 custom_fonts/font = SubResource( 2 )
+align = 2
 script = ExtResource( 5 )
 
 [node name="Icon" type="TextureRect" parent="resources_container/Counters/Star Coins"]
@@ -79,3 +85,41 @@ margin_left = 4.0
 margin_right = 36.0
 margin_bottom = 32.0
 texture = ExtResource( 4 )
+
+[node name="Envelopes" type="HBoxContainer" parent="resources_container/Counters"]
+margin_top = 36.0
+margin_right = 36.0
+margin_bottom = 68.0
+
+[node name="Number" type="Label" parent="resources_container/Counters/Envelopes"]
+margin_top = 6.0
+margin_bottom = 25.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+align = 2
+script = ExtResource( 9 )
+
+[node name="Icon" type="TextureRect" parent="resources_container/Counters/Envelopes"]
+margin_left = 4.0
+margin_right = 36.0
+margin_bottom = 32.0
+texture = ExtResource( 8 )
+
+[node name="Pizza Slices" type="HBoxContainer" parent="resources_container/Counters"]
+margin_top = 72.0
+margin_right = 36.0
+margin_bottom = 104.0
+
+[node name="Number" type="Label" parent="resources_container/Counters/Pizza Slices"]
+margin_top = 6.0
+margin_bottom = 25.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+align = 2
+script = ExtResource( 10 )
+
+[node name="Icon" type="TextureRect" parent="resources_container/Counters/Pizza Slices"]
+margin_left = 4.0
+margin_right = 36.0
+margin_bottom = 32.0
+texture = ExtResource( 11 )
