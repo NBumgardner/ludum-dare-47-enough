@@ -25,8 +25,11 @@ onready var player_variables = get_node("/root/PlayerVariables")
 
 # Player Movement methods
 func _physics_process(delta):
-	# Stop timer and moving if player is out of money
-	if game_over_conditions.is_player_out_of_money():
+	# Stop timer and moving if player is out of money or health
+	if (
+		game_over_conditions.is_player_out_of_money()
+		|| game_over_conditions.is_player_out_of_health()
+	):
 		is_player_asleep = true
 		return
 
