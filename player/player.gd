@@ -1,7 +1,12 @@
 extends KinematicBody2D
 
 const ACCELERATION = 1500
+const INCOME_FROM_MARKET_AREA_BED_HEALTH = 2
+const INCOME_FROM_MARKET_AREA_BED_STAR_COINS = -1
 const INCOME_FROM_MARKET_AREA_WELCOME_STAR_COINS = 2
+const INCOME_FROM_MARKET_AREA_SAW_HEALTH = -1
+const INCOME_FROM_MARKET_AREA_SAW_SMILE = -1
+const INCOME_FROM_MARKET_AREA_SAW_STAR_COINS = 2
 const MAX_SPEED = 400
 const TAX_STAR_COINS = -1
 
@@ -10,6 +15,11 @@ var motion = Vector2()
 var player_is_inside = []
 
 signal activate_market(body)
+signal activate_market_area_bed(body)
+signal activate_market_area_saw(body)
+signal cannot_affort_market_area_bed(body)
+signal set_health_increase(amount)
+signal set_smile_increase(amount)
 signal set_star_coin_increase(amount)
 
 
@@ -19,8 +29,11 @@ onready var player_variables = get_node("/root/PlayerVariables")
 
 # Player Movement methods
 func _physics_process(delta):
-	# Stop timer and moving if player is out of money
-	if game_over_conditions.is_player_out_of_money():
+	# Stop timer and moving if player is out of money or health
+	if (
+		game_over_conditions.is_player_out_of_money()
+		|| game_over_conditions.is_player_out_of_health()
+	):
 		is_player_asleep = true
 		return
 
@@ -58,6 +71,60 @@ func _get_input_axis():
 		- int(Input.is_action_pressed("ui_up"))
 	)
 	return axis.normalized()
+
+
+# Market Area Bed collision method
+func _on_Market_Area_Bed_body_entered(body):
+	var minimum_star_coins = 0
+	var remaining_star_coins = (
+		player_variables.player_currency_star_coin
+		+ INCOME_FROM_MARKET_AREA_BED_STAR_COINS
+	)
+	if remaining_star_coins >= minimum_star_coins:
+		_activate_Market_Area_Bed(body)
+	else:
+		emit_signal("cannot_affort_market_area_bed", body)
+
+
+# Market Area Saw collision method
+func _on_Market_Area_Saw_body_entered(body):
+	_activate_Market_Area_Saw(body)
+
+
+# Logic for Market Area Bed
+func _activate_Market_Area_Bed(body):
+	emit_signal("activate_market_area_bed", body)
+	emit_signal(
+		"set_star_coin_increase",
+		INCOME_FROM_MARKET_AREA_BED_STAR_COINS
+	)
+	emit_signal(
+		"set_health_increase",
+		INCOME_FROM_MARKET_AREA_BED_HEALTH
+	)
+
+	if (OS.is_debug_build()):
+		print("Player entered " + str(body))
+
+
+# Logic for Market Area Saw
+func _activate_Market_Area_Saw(body):
+	emit_signal("activate_market_area_saw", body)
+	emit_signal(
+		"set_star_coin_increase",
+		INCOME_FROM_MARKET_AREA_SAW_STAR_COINS
+	)
+	emit_signal(
+		"set_smile_increase",
+		INCOME_FROM_MARKET_AREA_SAW_SMILE
+	)
+	emit_signal(
+		"set_health_increase",
+		INCOME_FROM_MARKET_AREA_SAW_HEALTH
+	)
+
+	if (OS.is_debug_build()):
+		print("Player entered " + str(body))
 
 
 # Market Area Welcome collision methods

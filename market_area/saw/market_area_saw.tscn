@@ -1,0 +1,187 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://assets/fonts/Roboto/Roboto-Medium.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/fonts/Roboto/Roboto-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/star-coin.png" type="Texture" id=3]
+[ext_resource path="res://market_area/collision-box_128x140.png" type="Texture" id=4]
+[ext_resource path="res://assets/checkmark.png" type="Texture" id=5]
+[ext_resource path="res://assets/smile.png" type="Texture" id=6]
+[ext_resource path="res://assets/heart.png" type="Texture" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 63.5327, 71.5393 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 14
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=3]
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("ColorRect:color:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0.764706, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("ColorRect:color:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0.764706, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("ColorRect:color:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0.764706, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("ColorRect:color:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 0.6, 1 )
+}
+
+[sub_resource type="DynamicFont" id=4]
+size = 32
+font_data = ExtResource( 1 )
+
+[node name="Node2D" type="Area2D"]
+z_index = -1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 65.054, 69.5895 )
+shape = SubResource( 1 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect"]
+margin_left = 2.0
+margin_top = 1.0
+margin_right = 126.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Vertical Sections" type="VBoxContainer" parent="TextureRect/MarginContainer"]
+margin_right = 124.0
+margin_bottom = 142.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Header Title" type="Label" parent="TextureRect/MarginContainer/Vertical Sections"]
+margin_right = 124.0
+margin_bottom = 17.0
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Saw"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Explanation" type="Label" parent="TextureRect/MarginContainer/Vertical Sections"]
+margin_top = 21.0
+margin_right = 124.0
+margin_bottom = 38.0
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+autowrap = true
+
+[node name="Active Checkmark" type="TextureRect" parent="TextureRect/MarginContainer/Vertical Sections"]
+margin_left = 54.0
+margin_top = 42.0
+margin_right = 70.0
+margin_bottom = 58.0
+size_flags_horizontal = 4
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="TextureRect/MarginContainer/Vertical Sections/Active Checkmark"]
+margin_right = 16.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.764706, 0.764706, 0.764706, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fade In Out" type="AnimationPlayer" parent="TextureRect/MarginContainer/Vertical Sections/Active Checkmark"]
+"anims/Fade Checkmark Animation" = SubResource( 3 )
+
+[node name="Cost Icons" type="HBoxContainer" parent="TextureRect/MarginContainer/Vertical Sections"]
+margin_top = 62.0
+margin_right = 124.0
+margin_bottom = 100.0
+
+[node name="Label" type="Label" parent="TextureRect/MarginContainer/Vertical Sections/Cost Icons"]
+margin_right = 11.0
+margin_bottom = 38.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "-"
+valign = 1
+
+[node name="Health 1" type="TextureRect" parent="TextureRect/MarginContainer/Vertical Sections/Cost Icons"]
+margin_left = 15.0
+margin_right = 47.0
+margin_bottom = 38.0
+texture = ExtResource( 7 )
+
+[node name="Smile 1" type="TextureRect" parent="TextureRect/MarginContainer/Vertical Sections/Cost Icons"]
+margin_left = 51.0
+margin_right = 83.0
+margin_bottom = 38.0
+texture = ExtResource( 6 )
+
+[node name="Benefit Icons" type="HBoxContainer" parent="TextureRect/MarginContainer/Vertical Sections"]
+margin_top = 104.0
+margin_right = 124.0
+margin_bottom = 142.0
+
+[node name="Label" type="Label" parent="TextureRect/MarginContainer/Vertical Sections/Benefit Icons"]
+margin_right = 18.0
+margin_bottom = 38.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "+"
+valign = 1
+
+[node name="Star Coin 1" type="TextureRect" parent="TextureRect/MarginContainer/Vertical Sections/Benefit Icons"]
+margin_left = 22.0
+margin_right = 54.0
+margin_bottom = 38.0
+texture = ExtResource( 3 )
+
+[node name="Star Coin 2" type="TextureRect" parent="TextureRect/MarginContainer/Vertical Sections/Benefit Icons"]
+margin_left = 58.0
+margin_right = 90.0
+margin_bottom = 38.0
+texture = ExtResource( 3 )

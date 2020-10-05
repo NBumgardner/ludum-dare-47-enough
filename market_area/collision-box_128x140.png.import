@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/collision-box_128x128.png-3600dce83a321301254255ad3f1f7784.stex"
+path="res://.import/collision-box_128x140.png-66636415cd4038b9836970e7d599da29.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://market_area_welcome/collision-box_128x128.png"
-dest_files=[ "res://.import/collision-box_128x128.png-3600dce83a321301254255ad3f1f7784.stex" ]
+source_file="res://market_area/collision-box_128x140.png"
+dest_files=[ "res://.import/collision-box_128x140.png-66636415cd4038b9836970e7d599da29.stex" ]
 
 [params]
 
