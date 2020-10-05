@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
 [ext_resource path="res://hud/hud.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://assets/double-coin.wav" type="AudioStream" id=5]
 [ext_resource path="res://market_area/saw/market_area_saw.tscn" type="PackedScene" id=6]
 [ext_resource path="res://market_area/bed/market_area_bed.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/cannot-afford.wav" type="AudioStream" id=8]
 
 [node name="Main" type="Node"]
 script = ExtResource( 1 )
@@ -30,6 +31,9 @@ autostart = true
 
 [node name="SFX_Add_2_Star_Coins" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
+
+[node name="SFX_Cannot_Afford" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
 [connection signal="body_entered" from="Market_Area_Bed" to="Player" method="_on_Market_Area_Bed_body_entered"]
 [connection signal="body_entered" from="Market_Area_Saw" to="Player" method="_on_Market_Area_Saw_body_entered"]
 [connection signal="body_entered" from="Market_Area_Welcome" to="Player" method="_on_Market_Area_Welcome_body_entered"]
@@ -37,6 +41,7 @@ stream = ExtResource( 5 )
 [connection signal="activate_market" from="Player" to="." method="_on_Player_activate_market"]
 [connection signal="activate_market_area_bed" from="Player" to="." method="_on_Player_activate_market_area_bed"]
 [connection signal="activate_market_area_saw" from="Player" to="." method="_on_Player_activate_market_area_saw"]
+[connection signal="cannot_affort_market_area_bed" from="Player" to="." method="_on_Player_cannot_affort_market_area_bed"]
 [connection signal="set_health_increase" from="Player" to="." method="_on_Player_set_health_increase"]
 [connection signal="set_smile_increase" from="Player" to="." method="_on_Player_set_smile_increase"]
 [connection signal="set_star_coin_increase" from="Player" to="." method="_on_Player_set_star_coin_increase"]

@@ -17,6 +17,7 @@ var player_is_inside = []
 signal activate_market(body)
 signal activate_market_area_bed(body)
 signal activate_market_area_saw(body)
+signal cannot_affort_market_area_bed(body)
 signal set_health_increase(amount)
 signal set_smile_increase(amount)
 signal set_star_coin_increase(amount)
@@ -74,8 +75,15 @@ func _get_input_axis():
 
 # Market Area Bed collision method
 func _on_Market_Area_Bed_body_entered(body):
-	_activate_Market_Area_Bed(body)
-	pass # Replace with function body.
+	var minimum_star_coins = 0
+	var remaining_star_coins = (
+		player_variables.player_currency_star_coin
+		+ INCOME_FROM_MARKET_AREA_BED_STAR_COINS
+	)
+	if remaining_star_coins >= minimum_star_coins:
+		_activate_Market_Area_Bed(body)
+	else:
+		emit_signal("cannot_affort_market_area_bed", body)
 
 
 # Market Area Saw collision method

@@ -55,3 +55,7 @@ func _show_market_area_saw_active_checkmark():
 	(
 		$"Market_Area_Saw/TextureRect/MarginContainer/Vertical Sections/Active Checkmark/Fade In Out"
 	).play("Fade Checkmark Animation")
+
+
+func _on_Player_cannot_affort_market_area_bed(body):
+	$SFX_Cannot_Afford.play()
