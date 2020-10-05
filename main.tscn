@@ -1,9 +1,8 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
 [ext_resource path="res://hud/hud.tscn" type="PackedScene" id=2]
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://market_area/welcome/market_area_welcome.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/double-coin.wav" type="AudioStream" id=5]
 [ext_resource path="res://market_area/saw/market_area_saw.tscn" type="PackedScene" id=6]
 [ext_resource path="res://market_area/bed/market_area_bed.tscn" type="PackedScene" id=7]
@@ -31,9 +30,6 @@ position = Vector2( 58.5204, 238.801 )
 [node name="Market_Area_Valentine" parent="." instance=ExtResource( 10 )]
 position = Vector2( 824.005, 242.576 )
 
-[node name="Market_Area_Welcome" parent="." instance=ExtResource( 4 )]
-position = Vector2( 435, 110 )
-
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 500, 300 )
 
@@ -55,9 +51,6 @@ position = Vector2( 239.745, 376.607 )
 [connection signal="body_entered" from="Market_Area_Mailbox" to="Player" method="_on_Market_Area_Mailbox_body_entered"]
 [connection signal="body_entered" from="Market_Area_Saw" to="Player" method="_on_Market_Area_Saw_body_entered"]
 [connection signal="body_entered" from="Market_Area_Valentine" to="Player" method="_on_Market_Area_Valentine_body_entered"]
-[connection signal="body_entered" from="Market_Area_Welcome" to="Player" method="_on_Market_Area_Welcome_body_entered"]
-[connection signal="body_exited" from="Market_Area_Welcome" to="Player" method="_on_Market_Area_Welcome_body_exited"]
-[connection signal="activate_market" from="Player" to="." method="_on_Player_activate_market"]
 [connection signal="activate_market_area_bed" from="Player" to="." method="_on_Player_activate_market_area_bed"]
 [connection signal="activate_market_area_house" from="Player" to="." method="_on_Player_activate_market_area_house"]
 [connection signal="activate_market_area_mailbox" from="Player" to="." method="_on_Player_activate_market_area_mailbox"]

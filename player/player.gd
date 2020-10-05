@@ -13,7 +13,6 @@ const INCOME_FROM_MARKET_AREA_PIZZA_BOX_STAR_COINS = 20
 const INCOME_FROM_MARKET_AREA_VALENTINE_ENVELOPES = -1
 const INCOME_FROM_MARKET_AREA_VALENTINE_HEALTH = 1
 const INCOME_FROM_MARKET_AREA_VALENTINE_SMILE = 2
-const INCOME_FROM_MARKET_AREA_WELCOME_STAR_COINS = 2
 const INCOME_FROM_MARKET_AREA_SAW_HEALTH = -1
 const INCOME_FROM_MARKET_AREA_SAW_SMILE = -1
 const INCOME_FROM_MARKET_AREA_SAW_STAR_COINS = 2
@@ -24,7 +23,6 @@ var is_player_asleep = true
 var motion = Vector2()
 var player_is_inside = []
 
-signal activate_market(body)
 signal activate_market_area_bed(body)
 signal activate_market_area_house(body)
 signal activate_market_area_mailbox(body)
@@ -280,35 +278,6 @@ func _activate_Market_Area_Valentine(body):
 
 	if (OS.is_debug_build()):
 		print("Player entered " + str(body))
-
-
-# Market Area Welcome collision methods
-func _on_Market_Area_Welcome_body_entered(body):
-	_activate_Market_Area_Welcome(body)
-
-func _on_Market_Area_Welcome_body_exited(body):
-	_deactivate_Market_Area_Welcome(body)
-
-
-# Logic for Market Area Welcome
-func _activate_Market_Area_Welcome(body):
-	player_is_inside.push_back(body)
-	emit_signal("activate_market", body)
-	emit_signal(
-		"set_star_coin_increase",
-		INCOME_FROM_MARKET_AREA_WELCOME_STAR_COINS
-	)
-
-	if (OS.is_debug_build()):
-		print("Player is in " + str(player_is_inside)
-			+ " after entering " + str(body))
-
-func _deactivate_Market_Area_Welcome(body):
-	player_is_inside.remove(player_is_inside.find(body))
-
-	if (OS.is_debug_build()):
-		print("Player is in " + str(player_is_inside)
-			+ " after leaving " + str(body))
 
 
 # Logic for passive loss of health while smile is empty and game is not over
