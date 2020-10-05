@@ -44,6 +44,11 @@ func _on_Player_activate_market_area_saw(_body):
 	$SFX_Add_2_Star_Coins.play()
 
 
+func _on_Player_activate_market_area_valentine(body):
+	_show_market_area_valentine_active_checkmark()
+	$SFX_Add_2_Star_Coins.play()
+
+
 func _on_Player_activate_market(_body):
 	_show_active_checkmark()
 	$SFX_Add_2_Star_Coins.play()
@@ -70,10 +75,18 @@ func _show_market_area_saw_active_checkmark():
 		$"Market_Area_Saw/TextureRect/MarginContainer/Vertical Sections/Active Checkmark/Fade In Out"
 	).play("Fade Checkmark Animation")
 
+func _show_market_area_valentine_active_checkmark():
+	(
+		$"Market_Area_Valentine/TextureRect/MarginContainer/Vertical Sections/Active Checkmark/Fade In Out"
+	).play("Fade Checkmark Animation")
+
 
 # Sound effect when player enters a market area the player cannot afford
 func _on_Player_cannot_affort_market_area_bed(body):
 	$SFX_Cannot_Afford.play()
 
 func _on_Player_cannot_affort_market_area_mailbox(body):
+	$SFX_Cannot_Afford.play()
+
+func _on_Player_cannot_affort_market_area_valentine(body):
 	$SFX_Cannot_Afford.play()

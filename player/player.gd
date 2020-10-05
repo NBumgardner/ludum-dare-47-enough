@@ -6,6 +6,9 @@ const INCOME_FROM_MARKET_AREA_BED_STAR_COINS = -1
 const INCOME_FROM_MARKET_AREA_MAILBOX_HEALTH = -1
 const INCOME_FROM_MARKET_AREA_MAILBOX_STAR_COINS = -1
 const INCOME_FROM_MARKET_AREA_MAILBOX_ENVELOPES = 5
+const INCOME_FROM_MARKET_AREA_VALENTINE_ENVELOPES = -1
+const INCOME_FROM_MARKET_AREA_VALENTINE_HEALTH = 1
+const INCOME_FROM_MARKET_AREA_VALENTINE_SMILE = 2
 const INCOME_FROM_MARKET_AREA_WELCOME_STAR_COINS = 2
 const INCOME_FROM_MARKET_AREA_SAW_HEALTH = -1
 const INCOME_FROM_MARKET_AREA_SAW_SMILE = -1
@@ -21,8 +24,10 @@ signal activate_market(body)
 signal activate_market_area_bed(body)
 signal activate_market_area_mailbox(body)
 signal activate_market_area_saw(body)
+signal activate_market_area_valentine(body)
 signal cannot_affort_market_area_bed(body)
 signal cannot_affort_market_area_mailbox(body)
+signal cannot_affort_market_area_valentine(body)
 signal set_envelope_increase(amount)
 signal set_health_increase(amount)
 signal set_smile_increase(amount)
@@ -110,6 +115,19 @@ func _on_Market_Area_Saw_body_entered(body):
 	_activate_Market_Area_Saw(body)
 
 
+# Market Area Valentine collision method
+func _on_Market_Area_Valentine_body_entered(body):
+	var minimum_envelopes = 0
+	var remaining_envelopes = (
+		player_variables.player_currency_envelope
+		+ INCOME_FROM_MARKET_AREA_VALENTINE_ENVELOPES
+	)
+	if remaining_envelopes >= minimum_envelopes:
+		_activate_Market_Area_Valentine(body)
+	else:
+		emit_signal("cannot_affort_market_area_valentine", body)
+
+
 # Logic for Market Area Bed
 func _activate_Market_Area_Bed(body):
 	emit_signal("activate_market_area_bed", body)
@@ -161,6 +179,26 @@ func _activate_Market_Area_Saw(body):
 	emit_signal(
 		"set_health_increase",
 		INCOME_FROM_MARKET_AREA_SAW_HEALTH
+	)
+
+	if (OS.is_debug_build()):
+		print("Player entered " + str(body))
+
+
+# Logic for Market Area Valentine
+func _activate_Market_Area_Valentine(body):
+	emit_signal("activate_market_area_valentine", body)
+	emit_signal(
+		"set_envelope_increase",
+		INCOME_FROM_MARKET_AREA_VALENTINE_ENVELOPES
+	)
+	emit_signal(
+		"set_health_increase",
+		INCOME_FROM_MARKET_AREA_VALENTINE_HEALTH
+	)
+	emit_signal(
+		"set_smile_increase",
+		INCOME_FROM_MARKET_AREA_VALENTINE_SMILE
 	)
 
 	if (OS.is_debug_build()):

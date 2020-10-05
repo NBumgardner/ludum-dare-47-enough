@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
 [ext_resource path="res://hud/hud.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://market_area/bed/market_area_bed.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/cannot-afford.wav" type="AudioStream" id=8]
 [ext_resource path="res://market_area/mailbox/market_area_mailbox.tscn" type="PackedScene" id=9]
+[ext_resource path="res://market_area/valentine/market_area_valentine.tscn" type="PackedScene" id=10]
 
 [node name="Main" type="Node"]
 script = ExtResource( 1 )
@@ -21,6 +22,9 @@ position = Vector2( 621.071, 98.1632 )
 
 [node name="Market_Area_Saw" parent="." instance=ExtResource( 6 )]
 position = Vector2( 58.5204, 238.801 )
+
+[node name="Market_Area_Valentine" parent="." instance=ExtResource( 10 )]
+position = Vector2( 824.005, 242.576 )
 
 [node name="Market_Area_Welcome" parent="." instance=ExtResource( 4 )]
 position = Vector2( 435, 110 )
@@ -41,14 +45,17 @@ stream = ExtResource( 8 )
 [connection signal="body_entered" from="Market_Area_Bed" to="Player" method="_on_Market_Area_Bed_body_entered"]
 [connection signal="body_entered" from="Market_Area_Mailbox" to="Player" method="_on_Market_Area_Mailbox_body_entered"]
 [connection signal="body_entered" from="Market_Area_Saw" to="Player" method="_on_Market_Area_Saw_body_entered"]
+[connection signal="body_entered" from="Market_Area_Valentine" to="Player" method="_on_Market_Area_Valentine_body_entered"]
 [connection signal="body_entered" from="Market_Area_Welcome" to="Player" method="_on_Market_Area_Welcome_body_entered"]
 [connection signal="body_exited" from="Market_Area_Welcome" to="Player" method="_on_Market_Area_Welcome_body_exited"]
 [connection signal="activate_market" from="Player" to="." method="_on_Player_activate_market"]
 [connection signal="activate_market_area_bed" from="Player" to="." method="_on_Player_activate_market_area_bed"]
 [connection signal="activate_market_area_mailbox" from="Player" to="." method="_on_Player_activate_market_area_mailbox"]
 [connection signal="activate_market_area_saw" from="Player" to="." method="_on_Player_activate_market_area_saw"]
+[connection signal="activate_market_area_valentine" from="Player" to="." method="_on_Player_activate_market_area_valentine"]
 [connection signal="cannot_affort_market_area_bed" from="Player" to="." method="_on_Player_cannot_affort_market_area_bed"]
 [connection signal="cannot_affort_market_area_mailbox" from="Player" to="." method="_on_Player_cannot_affort_market_area_mailbox"]
+[connection signal="cannot_affort_market_area_valentine" from="Player" to="." method="_on_Player_cannot_affort_market_area_valentine"]
 [connection signal="set_envelope_increase" from="Player" to="." method="_on_Player_set_envelope_increase"]
 [connection signal="set_health_increase" from="Player" to="." method="_on_Player_set_health_increase"]
 [connection signal="set_smile_increase" from="Player" to="." method="_on_Player_set_smile_increase"]
