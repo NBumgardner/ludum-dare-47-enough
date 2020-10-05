@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://market_area_welcome/collision-box_128x128.png" type="Texture" id=1]
+[ext_resource path="res://market_area_welcome/collision-box_128x140.png" type="Texture" id=1]
 [ext_resource path="res://assets/star-coin.png" type="Texture" id=2]
 [ext_resource path="res://assets/checkmark.png" type="Texture" id=3]
 [ext_resource path="res://assets/fonts/Roboto/Roboto-Regular.ttf" type="DynamicFontData" id=4]
@@ -79,14 +79,13 @@ __meta__ = {
 margin_left = 2.0
 margin_top = 1.0
 margin_right = 126.0
-margin_bottom = 126.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Vertical Sections" type="VBoxContainer" parent="TextureRect/MarginContainer"]
 margin_right = 124.0
-margin_bottom = 125.0
+margin_bottom = 142.0
 size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
@@ -94,7 +93,7 @@ __meta__ = {
 
 [node name="Header Title" type="Label" parent="TextureRect/MarginContainer/Vertical Sections"]
 margin_right = 124.0
-margin_bottom = 29.0
+margin_bottom = 17.0
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -106,9 +105,9 @@ __meta__ = {
 }
 
 [node name="Explanation" type="Label" parent="TextureRect/MarginContainer/Vertical Sections"]
-margin_top = 33.0
+margin_top = 21.0
 margin_right = 124.0
-margin_bottom = 63.0
+margin_bottom = 38.0
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -117,9 +116,9 @@ autowrap = true
 
 [node name="Active Checkmark" type="TextureRect" parent="TextureRect/MarginContainer/Vertical Sections"]
 margin_left = 54.0
-margin_top = 67.0
+margin_top = 42.0
 margin_right = 70.0
-margin_bottom = 83.0
+margin_bottom = 58.0
 size_flags_horizontal = 4
 texture = ExtResource( 3 )
 __meta__ = {
@@ -139,10 +138,23 @@ __meta__ = {
 [node name="Fade In Out" type="AnimationPlayer" parent="TextureRect/MarginContainer/Vertical Sections/Active Checkmark"]
 "anims/Fade Checkmark Animation" = SubResource( 3 )
 
-[node name="Benefit Icons" type="HBoxContainer" parent="TextureRect/MarginContainer/Vertical Sections"]
-margin_top = 87.0
+[node name="Cost Icons" type="HBoxContainer" parent="TextureRect/MarginContainer/Vertical Sections"]
+margin_top = 62.0
 margin_right = 124.0
-margin_bottom = 125.0
+margin_bottom = 100.0
+
+[node name="Label" type="Label" parent="TextureRect/MarginContainer/Vertical Sections/Cost Icons"]
+margin_right = 63.0
+margin_bottom = 38.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Free"
+valign = 1
+
+[node name="Benefit Icons" type="HBoxContainer" parent="TextureRect/MarginContainer/Vertical Sections"]
+margin_top = 104.0
+margin_right = 124.0
+margin_bottom = 142.0
 
 [node name="Label" type="Label" parent="TextureRect/MarginContainer/Vertical Sections/Benefit Icons"]
 margin_right = 18.0
