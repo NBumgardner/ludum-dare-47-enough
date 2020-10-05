@@ -18,7 +18,7 @@ const INCOME_FROM_MARKET_AREA_SAW_HEALTH = -1
 const INCOME_FROM_MARKET_AREA_SAW_SMILE = -1
 const INCOME_FROM_MARKET_AREA_SAW_STAR_COINS = 2
 const MAX_SPEED = 400
-const TAX_STAR_COINS = -1
+const TAX_HEALTH = -1
 
 var is_player_asleep = true
 var motion = Vector2()
@@ -300,16 +300,16 @@ func _deactivate_Market_Area_Welcome(body):
 			+ " after leaving " + str(body))
 
 
-# Logic for passive loss of star coin currency
+# Logic for passive loss of health while smile is empty and game is not over
 func _start_Tax_Timer():
 	if is_player_asleep && !game_over_conditions.is_player_rich():
 		is_player_asleep = false
 
 func _on_Tax_Timer_timeout():
-	if !is_player_asleep:
+	if !is_player_asleep && player_variables.player_current_smile <= 0:
 		emit_signal(
-			"set_star_coin_increase",
-			TAX_STAR_COINS
+			"set_health_increase",
+			TAX_HEALTH
 		)
 
 func _stop_Tax_Timer():
