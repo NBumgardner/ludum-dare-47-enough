@@ -46,6 +46,20 @@ stream = ExtResource( 8 )
 
 [node name="Market_Area_Pizza_Box" parent="." instance=ExtResource( 12 )]
 position = Vector2( 239.745, 376.607 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="ParallaxBackground"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 40.0
+margin_bottom = 40.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+color = Color( 0.184314, 0.215686, 0.184314, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="body_entered" from="Market_Area_Bed" to="Player" method="_on_Market_Area_Bed_body_entered"]
 [connection signal="body_entered" from="Market_Area_House" to="Player" method="_on_Market_Area_House_body_entered"]
 [connection signal="body_entered" from="Market_Area_Mailbox" to="Player" method="_on_Market_Area_Mailbox_body_entered"]
