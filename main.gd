@@ -13,6 +13,10 @@ func _on_Player_set_health_increase(amount):
 	)
 
 
+func _on_Player_set_envelope_increase(amount):
+	player_variables.player_currency_envelope += amount
+
+
 func _on_Player_set_smile_increase(amount):
 	player_variables.player_current_smile = clamp(
 		player_variables.player_current_smile + amount,
@@ -27,6 +31,11 @@ func _on_Player_set_star_coin_increase(amount):
 
 func _on_Player_activate_market_area_bed(body):
 	_show_market_area_bed_active_checkmark()
+	$SFX_Add_2_Star_Coins.play()
+
+
+func _on_Player_activate_market_area_mailbox(body):
+	_show_market_area_mailbox_active_checkmark()
 	$SFX_Add_2_Star_Coins.play()
 
 
@@ -51,11 +60,20 @@ func _show_market_area_bed_active_checkmark():
 		$"Market_Area_Bed/TextureRect/MarginContainer/Vertical Sections/Active Checkmark/Fade In Out"
 	).play("Fade Checkmark Animation")
 
+func _show_market_area_mailbox_active_checkmark():
+	(
+		$"Market_Area_Mailbox/TextureRect/MarginContainer/Vertical Sections/Active Checkmark/Fade In Out"
+	).play("Fade Checkmark Animation")
+
 func _show_market_area_saw_active_checkmark():
 	(
 		$"Market_Area_Saw/TextureRect/MarginContainer/Vertical Sections/Active Checkmark/Fade In Out"
 	).play("Fade Checkmark Animation")
 
 
+# Sound effect when player enters a market area the player cannot afford
 func _on_Player_cannot_affort_market_area_bed(body):
+	$SFX_Cannot_Afford.play()
+
+func _on_Player_cannot_affort_market_area_mailbox(body):
 	$SFX_Cannot_Afford.play()
