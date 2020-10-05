@@ -3,7 +3,7 @@
 [ext_resource path="res://main.gd" type="Script" id=1]
 [ext_resource path="res://hud/hud.tscn" type="PackedScene" id=2]
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://market_area_welcome/market_area_welcome.tscn" type="PackedScene" id=4]
+[ext_resource path="res://market_area/welcome/market_area_welcome.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/double-coin.wav" type="AudioStream" id=5]
 
 [node name="Main" type="Node"]

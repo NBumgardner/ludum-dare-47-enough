@@ -1,10 +1,11 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://market_area_welcome/collision-box_128x140.png" type="Texture" id=1]
+[ext_resource path="res://market_area/collision-box_128x140.png" type="Texture" id=1]
 [ext_resource path="res://assets/star-coin.png" type="Texture" id=2]
 [ext_resource path="res://assets/checkmark.png" type="Texture" id=3]
 [ext_resource path="res://assets/fonts/Roboto/Roboto-Regular.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://assets/fonts/Roboto/Roboto-Medium.ttf" type="DynamicFontData" id=5]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 63.5327, 71.5393 )
