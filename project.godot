@@ -35,6 +35,10 @@ config/icon="res://icon.png"
 PlayerVariables="*res://player_variables.gd"
 GameOverConditions="*res://game_over_conditions.gd"
 
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/gut/plugin.cfg" )
+
 [rendering]
 
 quality/driver/driver_name="GLES2"
