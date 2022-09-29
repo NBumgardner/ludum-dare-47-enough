@@ -107,7 +107,7 @@ func _can_afford(costs):
 		MarketAreaDatabase.market_area_index_income_envelopes
 	]
 	var income_pizza_slices = costs[
-		MarketAreaDatabase.market_area_index_income_health
+		MarketAreaDatabase.market_area_index_income_pizza_slices
 	]
 	var income_star_coins = costs[
 		MarketAreaDatabase.market_area_index_income_star_coins
@@ -127,7 +127,7 @@ func _can_afford(costs):
 		var player_pizza_slices = player_variables.player_currency_pizza_slice
 		var remaining_pizza_slices = (
 			player_pizza_slices
-			+ income_star_coins
+			+ income_pizza_slices
 		)
 		can_afford = can_afford && (
 			remaining_pizza_slices >= 0
@@ -165,13 +165,27 @@ func _can_benefit(costs):
 		|| costs.size() != 7):
 		return false
 
+	var income_envelopes = costs[
+		MarketAreaDatabase.market_area_index_income_envelopes
+	]
 	var income_health = costs[
 		MarketAreaDatabase.market_area_index_income_health
+	]
+	var income_pizza_slices = costs[
+		MarketAreaDatabase.market_area_index_income_pizza_slices
 	]
 	var income_smile = costs[
 		MarketAreaDatabase.market_area_index_income_smile
 	]
+	var income_star_coins = costs[
+		MarketAreaDatabase.market_area_index_income_star_coins
+	]
 
+	# Check if any unlimited currency would be increased.
+	if income_envelopes > 0 || income_pizza_slices > 0 || income_star_coins > 0:
+		can_benefit = true
+
+	# Check if any limited currency would be increased.
 	if income_health > 0:
 		can_benefit = can_benefit || (
 			player_variables.player_current_health
