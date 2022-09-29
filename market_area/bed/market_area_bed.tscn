@@ -93,8 +93,8 @@ __meta__ = {
 margin_right = 124.0
 margin_bottom = 17.0
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Bed"
 align = 1
 autowrap = true
@@ -107,8 +107,8 @@ margin_top = 21.0
 margin_right = 124.0
 margin_bottom = 38.0
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
 autowrap = true
 
 [node name="Active Checkmark" type="TextureRect" parent="TextureRect/MarginContainer/Vertical Sections"]
@@ -143,8 +143,8 @@ margin_bottom = 100.0
 [node name="Label" type="Label" parent="TextureRect/MarginContainer/Vertical Sections/Cost Icons"]
 margin_right = 11.0
 margin_bottom = 38.0
-custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
 text = "-"
 valign = 1
 
@@ -162,8 +162,8 @@ margin_bottom = 142.0
 [node name="Label" type="Label" parent="TextureRect/MarginContainer/Vertical Sections/Benefit Icons"]
 margin_right = 18.0
 margin_bottom = 38.0
-custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
 text = "+"
 valign = 1
 
