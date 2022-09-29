@@ -1,7 +1,10 @@
 extends KinematicBody2D
 
 const ACCELERATION = 1500
-const INCOME_FROM_MARKET_AREA_BED_HEALTH = 2
+onready var MarketAreaDatabase = load("res://assets/market_area_database.gd")
+onready var INCOME_FROM_MARKET_AREA_BED_HEALTH = MarketAreaDatabase.DATA[
+		MarketAreaDatabase.get("Bed")
+	][MarketAreaDatabase.market_area_index_income_health]
 const INCOME_FROM_MARKET_AREA_BED_STAR_COINS = -1
 const INCOME_FROM_MARKET_AREA_HOUSE_ENVELOPES = -1
 const INCOME_FROM_MARKET_AREA_HOUSE_PIZZA_SLICES = 1
@@ -75,6 +78,99 @@ func _apply_movement(amount):
 	motion += amount
 	motion = motion.clamped(MAX_SPEED)
 
+
+# Validate if Player May Use a Market Area
+func _can_afford(costs):
+	var can_afford = true
+
+	if (typeof(costs) != TYPE_ARRAY
+		|| costs[0] != "MarketArea"
+		|| costs.size() != 7):
+		return false
+
+	var income_envelopes = costs[
+		MarketAreaDatabase.market_area_index_income_envelopes
+	]
+	var income_pizza_slices = costs[
+		MarketAreaDatabase.market_area_index_income_health
+	]
+	var income_star_coins = costs[
+		MarketAreaDatabase.market_area_index_income_star_coins
+	]
+
+	if income_envelopes < 0:
+		var player_envelopes = player_variables.player_currency_envelopes
+		var remaining_envelopes = (
+			player_envelopes
+			+ income_envelopes
+		)
+		can_afford = can_afford && (
+			remaining_envelopes >= 0
+		)
+
+	if income_pizza_slices < 0:
+		var player_pizza_slices = player_variables.player_currency_pizza_slice
+		var remaining_pizza_slices = (
+			player_pizza_slices
+			+ income_star_coins
+		)
+		can_afford = can_afford && (
+			remaining_pizza_slices >= 0
+		)
+
+	if income_star_coins < 0:
+		var player_star_coins = player_variables.player_currency_star_coin
+		var remaining_star_coins = (
+			player_star_coins
+			+ income_star_coins
+		)
+		can_afford = can_afford && (
+			remaining_star_coins >= 0
+		)
+
+	return can_afford
+
+func _can_afford_and_benefit(costs):
+	var can_afford = true
+	var can_benefit = false
+
+	if (typeof(costs) == TYPE_ARRAY
+		&& costs[0] == "MarketArea"
+		&& costs.size() == 7):
+		can_afford = _can_afford(costs)
+		can_benefit = _can_benefit(costs)
+
+	return can_afford && can_benefit
+
+func _can_benefit(costs):
+	var can_benefit = false
+
+	if (typeof(costs) != TYPE_ARRAY
+		|| costs[0] != "MarketArea"
+		|| costs.size() != 7):
+		return false
+
+	var income_health = costs[
+		MarketAreaDatabase.market_area_index_income_health
+	]
+	var income_smile = costs[
+		MarketAreaDatabase.market_area_index_income_smile
+	]
+
+	if income_health > 0:
+		can_benefit = can_benefit || (
+			player_variables.player_current_health
+			< player_variables.INITIAL_MAX_HEALTH
+		)
+
+	if income_smile > 0:
+		can_benefit = can_benefit || (
+			player_variables.player_current_smile
+			< player_variables.INITIAL_MAX_SMILE
+		)
+
+	return can_benefit
+
 func _get_input_axis():
 	var axis = Vector2.ZERO
 	axis.x = (
@@ -100,7 +196,9 @@ func _on_Market_Area_Bed_body_entered(body):
 		< player_variables.INITIAL_MAX_HEALTH
 	)
 
-	if can_afford && can_benefit:
+	if _can_afford_and_benefit(MarketAreaDatabase.DATA[
+		MarketAreaDatabase.get("Bed")
+	]):
 		_activate_Market_Area_Bed(body)
 	else:
 		emit_signal("cannot_affort_market_area_bed", body)

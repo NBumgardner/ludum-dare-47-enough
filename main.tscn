@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
 [ext_resource path="res://hud/hud.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://market_area/house/market_area_house.tscn" type="PackedScene" id=11]
 [ext_resource path="res://market_area/pizza_box/market_area_pizza_box.tscn" type="PackedScene" id=12]
 [ext_resource path="res://addons/gut/plugin_control.gd" type="Script" id=13]
+[ext_resource path="res://market_area/market_area_blank/market_area_bed.tscn" type="PackedScene" id=14]
 
 [node name="Main" type="Node"]
 script = ExtResource( 1 )
@@ -75,6 +76,9 @@ rect_min_size = Vector2( 740, 250 )
 script = ExtResource( 13 )
 _should_maximize = true
 _directory1 = "res://test/unit"
+
+[node name="Market_Area_Blank" parent="." instance=ExtResource( 14 )]
+visible = false
 
 [connection signal="body_entered" from="Market_Area_Bed" to="Player" method="_on_Market_Area_Bed_body_entered"]
 [connection signal="body_entered" from="Market_Area_House" to="Player" method="_on_Market_Area_House_body_entered"]
