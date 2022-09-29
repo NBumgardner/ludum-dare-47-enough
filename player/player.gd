@@ -2,9 +2,7 @@ extends KinematicBody2D
 
 const ACCELERATION = 1500
 onready var MarketAreaDatabase = load("res://assets/market_area_database.gd")
-onready var INCOME_FROM_MARKET_AREA_BED_HEALTH = MarketAreaDatabase.DATA[
-		MarketAreaDatabase.get("Bed")
-	][MarketAreaDatabase.market_area_index_income_health]
+onready var INCOME_FROM_MARKET_AREA_BED_HEALTH = _get_income("Bed", "health")
 const INCOME_FROM_MARKET_AREA_BED_STAR_COINS = -1
 const INCOME_FROM_MARKET_AREA_HOUSE_ENVELOPES = -1
 const INCOME_FROM_MARKET_AREA_HOUSE_PIZZA_SLICES = 1
@@ -182,6 +180,39 @@ func _get_input_axis():
 		- int(Input.is_action_pressed("ui_up"))
 	)
 	return axis.normalized()
+
+
+# Access Database fields
+func _get_cost(market_area_name):
+	return MarketAreaDatabase.DATA[
+		MarketAreaDatabase.get(market_area_name)
+	]
+
+func _get_income(market_area_name, currency_name):
+	var income = 0
+	var income_index = 0
+
+	match currency_name:
+		"envelopes":
+			income_index = MarketAreaDatabase.market_area_index_income_envelopes
+		"health":
+			income_index = MarketAreaDatabase.market_area_index_income_health
+		"pizza_slices":
+			income_index = (
+				MarketAreaDatabase.market_area_index_income_pizza_slices
+			)
+		"smile":
+			income_index = MarketAreaDatabase.market_area_index_income_smile
+		"star_coins":
+			income_index = (
+				MarketAreaDatabase.market_area_index_income_star_coins
+			)
+		_:
+			return income
+
+	income = _get_cost(market_area_name)[income_index]
+
+	return income
 
 
 # Market Area Bed collision method
