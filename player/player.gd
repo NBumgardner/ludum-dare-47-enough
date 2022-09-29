@@ -234,19 +234,7 @@ func _get_income(market_area_name, currency_name):
 
 # Market Area Bed collision method
 func _on_Market_Area_Bed_body_entered(body):
-	var remaining_star_coins = (
-		player_variables.player_currency_star_coin
-		+ INCOME_FROM_MARKET_AREA_BED_STAR_COINS
-	)
-	var can_afford = remaining_star_coins >= 0
-	var can_benefit = (
-		player_variables.player_current_health
-		< player_variables.INITIAL_MAX_HEALTH
-	)
-
-	if _can_afford_and_benefit(MarketAreaDatabase.DATA[
-		MarketAreaDatabase.get("Bed")
-	]):
+	if _can_afford_and_benefit(_get_cost("Bed")):
 		_activate_Market_Area_Bed(body)
 	else:
 		emit_signal("cannot_affort_market_area_bed", body)
@@ -254,12 +242,7 @@ func _on_Market_Area_Bed_body_entered(body):
 
 # Market Area House collision method
 func _on_Market_Area_House_body_entered(body):
-	var minimum_envelopes = 0
-	var remaining_envelopes = (
-		player_variables.player_currency_envelope
-		+ INCOME_FROM_MARKET_AREA_HOUSE_ENVELOPES
-	)
-	if remaining_envelopes >= minimum_envelopes:
+	if _can_afford_and_benefit(_get_cost("House")):
 		_activate_Market_Area_House(body)
 	else:
 		emit_signal("cannot_affort_market_area_house", body)
@@ -267,12 +250,7 @@ func _on_Market_Area_House_body_entered(body):
 
 # Market Area Mailbox collision method
 func _on_Market_Area_Mailbox_body_entered(body):
-	var minimum_star_coins = 0
-	var remaining_star_coins = (
-		player_variables.player_currency_star_coin
-		+ INCOME_FROM_MARKET_AREA_MAILBOX_STAR_COINS
-	)
-	if remaining_star_coins >= minimum_star_coins:
+	if _can_afford_and_benefit(_get_cost("Mailbox")):
 		_activate_Market_Area_Mailbox(body)
 	else:
 		emit_signal("cannot_affort_market_area_mailbox", body)
@@ -280,12 +258,7 @@ func _on_Market_Area_Mailbox_body_entered(body):
 
 # Market Area Pizza Box collision method
 func _on_Market_Area_Pizza_Box_body_entered(body):
-	var minimum_pizza_slices = 0
-	var remaining_pizza_slices = (
-		player_variables.player_currency_pizza_slice
-		+ INCOME_FROM_MARKET_AREA_PIZZA_BOX_PIZZA_SLICES
-	)
-	if remaining_pizza_slices >= minimum_pizza_slices:
+	if _can_afford_and_benefit(_get_cost("PizzaBox")):
 		_activate_Market_Area_Pizza_Box(body)
 	else:
 		emit_signal("cannot_affort_market_area_pizza_box", body)
@@ -298,21 +271,7 @@ func _on_Market_Area_Saw_body_entered(body):
 
 # Market Area Valentine collision method
 func _on_Market_Area_Valentine_body_entered(body):
-	var remaining_envelopes = (
-		player_variables.player_currency_envelope
-		+ INCOME_FROM_MARKET_AREA_VALENTINE_ENVELOPES
-	)
-	var can_afford = remaining_envelopes >= 0
-	var can_benefit = (
-		(
-			player_variables.player_current_health
-			< player_variables.INITIAL_MAX_HEALTH
-		) || (
-			player_variables.player_current_smile
-			< player_variables.INITIAL_MAX_SMILE
-		)
-	)
-	if can_afford && can_benefit:
+	if _can_afford_and_benefit(_get_cost("Valentine")):
 		_activate_Market_Area_Valentine(body)
 	else:
 		emit_signal("cannot_affort_market_area_valentine", body)
