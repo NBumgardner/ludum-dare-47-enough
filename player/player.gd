@@ -2,21 +2,38 @@ extends KinematicBody2D
 
 const ACCELERATION = 1500
 onready var MarketAreaDatabase = load("res://assets/market_area_database.gd")
-onready var INCOME_FROM_MARKET_AREA_BED_HEALTH = _get_income("Bed", "health")
-const INCOME_FROM_MARKET_AREA_BED_STAR_COINS = -1
-const INCOME_FROM_MARKET_AREA_HOUSE_ENVELOPES = -1
-const INCOME_FROM_MARKET_AREA_HOUSE_PIZZA_SLICES = 1
-const INCOME_FROM_MARKET_AREA_MAILBOX_HEALTH = -1
-const INCOME_FROM_MARKET_AREA_MAILBOX_STAR_COINS = -1
-const INCOME_FROM_MARKET_AREA_MAILBOX_ENVELOPES = 5
-const INCOME_FROM_MARKET_AREA_PIZZA_BOX_PIZZA_SLICES = -8
-const INCOME_FROM_MARKET_AREA_PIZZA_BOX_STAR_COINS = 20
-const INCOME_FROM_MARKET_AREA_VALENTINE_ENVELOPES = -1
-const INCOME_FROM_MARKET_AREA_VALENTINE_HEALTH = 1
-const INCOME_FROM_MARKET_AREA_VALENTINE_SMILE = 2
-const INCOME_FROM_MARKET_AREA_SAW_HEALTH = -1
-const INCOME_FROM_MARKET_AREA_SAW_SMILE = -1
-const INCOME_FROM_MARKET_AREA_SAW_STAR_COINS = 2
+
+onready var INCOME_FROM_MARKET_AREA_BED_HEALTH = _get_income(
+	"Bed", "health")
+onready var INCOME_FROM_MARKET_AREA_BED_STAR_COINS = _get_income(
+	"Bed", "star_coins")
+onready var INCOME_FROM_MARKET_AREA_HOUSE_ENVELOPES = _get_income(
+	"House", "envelopes")
+onready var INCOME_FROM_MARKET_AREA_HOUSE_PIZZA_SLICES = _get_income(
+	"House", "pizza_slices")
+onready var INCOME_FROM_MARKET_AREA_MAILBOX_HEALTH = _get_income(
+	"Mailbox", "health")
+onready var INCOME_FROM_MARKET_AREA_MAILBOX_STAR_COINS = _get_income(
+	"Mailbox", "star_coins")
+onready var INCOME_FROM_MARKET_AREA_MAILBOX_ENVELOPES = _get_income(
+	"Mailbox", "envelopes")
+onready var INCOME_FROM_MARKET_AREA_PIZZA_BOX_PIZZA_SLICES = _get_income(
+	"PizzaBox", "pizza_slices")
+onready var INCOME_FROM_MARKET_AREA_PIZZA_BOX_STAR_COINS = _get_income(
+	"PizzaBox", "star_coins")
+onready var INCOME_FROM_MARKET_AREA_VALENTINE_ENVELOPES = _get_income(
+	"Valentine", "envelopes")
+onready var INCOME_FROM_MARKET_AREA_VALENTINE_HEALTH = _get_income(
+	"Valentine", "health")
+onready var INCOME_FROM_MARKET_AREA_VALENTINE_SMILE = _get_income(
+	"Valentine", "smile")
+onready var INCOME_FROM_MARKET_AREA_SAW_HEALTH = _get_income(
+	"Saw", "health")
+onready var INCOME_FROM_MARKET_AREA_SAW_SMILE = _get_income(
+	"Saw", "smile")
+onready var INCOME_FROM_MARKET_AREA_SAW_STAR_COINS = _get_income(
+	"Saw", "star_coins")
+
 const MAX_SPEED = 400
 const TAX_HEALTH = -1
 
