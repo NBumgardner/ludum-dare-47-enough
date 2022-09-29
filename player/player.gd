@@ -3,37 +3,6 @@ extends KinematicBody2D
 const ACCELERATION = 1500
 onready var MarketAreaDatabase = load("res://assets/market_area_database.gd")
 
-onready var INCOME_FROM_MARKET_AREA_BED_HEALTH = _get_income(
-	"Bed", "health")
-onready var INCOME_FROM_MARKET_AREA_BED_STAR_COINS = _get_income(
-	"Bed", "star_coins")
-onready var INCOME_FROM_MARKET_AREA_HOUSE_ENVELOPES = _get_income(
-	"House", "envelopes")
-onready var INCOME_FROM_MARKET_AREA_HOUSE_PIZZA_SLICES = _get_income(
-	"House", "pizza_slices")
-onready var INCOME_FROM_MARKET_AREA_MAILBOX_HEALTH = _get_income(
-	"Mailbox", "health")
-onready var INCOME_FROM_MARKET_AREA_MAILBOX_STAR_COINS = _get_income(
-	"Mailbox", "star_coins")
-onready var INCOME_FROM_MARKET_AREA_MAILBOX_ENVELOPES = _get_income(
-	"Mailbox", "envelopes")
-onready var INCOME_FROM_MARKET_AREA_PIZZA_BOX_PIZZA_SLICES = _get_income(
-	"PizzaBox", "pizza_slices")
-onready var INCOME_FROM_MARKET_AREA_PIZZA_BOX_STAR_COINS = _get_income(
-	"PizzaBox", "star_coins")
-onready var INCOME_FROM_MARKET_AREA_VALENTINE_ENVELOPES = _get_income(
-	"Valentine", "envelopes")
-onready var INCOME_FROM_MARKET_AREA_VALENTINE_HEALTH = _get_income(
-	"Valentine", "health")
-onready var INCOME_FROM_MARKET_AREA_VALENTINE_SMILE = _get_income(
-	"Valentine", "smile")
-onready var INCOME_FROM_MARKET_AREA_SAW_HEALTH = _get_income(
-	"Saw", "health")
-onready var INCOME_FROM_MARKET_AREA_SAW_SMILE = _get_income(
-	"Saw", "smile")
-onready var INCOME_FROM_MARKET_AREA_SAW_STAR_COINS = _get_income(
-	"Saw", "star_coins")
-
 const MAX_SPEED = 400
 const TAX_HEALTH = -1
 
@@ -296,11 +265,11 @@ func _activate_Market_Area_Bed(body):
 	emit_signal("activate_market_area_bed", body)
 	emit_signal(
 		"set_star_coin_increase",
-		INCOME_FROM_MARKET_AREA_BED_STAR_COINS
+		_get_income("Bed", "star_coins")
 	)
 	emit_signal(
 		"set_health_increase",
-		INCOME_FROM_MARKET_AREA_BED_HEALTH
+		_get_income("Bed", "health")
 	)
 
 	if (OS.is_debug_build()):
@@ -312,11 +281,11 @@ func _activate_Market_Area_House(body):
 	emit_signal("activate_market_area_house", body)
 	emit_signal(
 		"set_envelope_increase",
-		INCOME_FROM_MARKET_AREA_HOUSE_ENVELOPES
+		_get_income("House", "envelopes")
 	)
 	emit_signal(
 		"set_pizza_slice_increase",
-		INCOME_FROM_MARKET_AREA_HOUSE_PIZZA_SLICES
+		_get_income("House", "pizza_slices")
 	)
 
 	if (OS.is_debug_build()):
@@ -328,15 +297,15 @@ func _activate_Market_Area_Mailbox(body):
 	emit_signal("activate_market_area_mailbox", body)
 	emit_signal(
 		"set_health_increase",
-		INCOME_FROM_MARKET_AREA_MAILBOX_HEALTH
+		_get_income("Mailbox", "health")
 	)
 	emit_signal(
 		"set_star_coin_increase",
-		INCOME_FROM_MARKET_AREA_MAILBOX_STAR_COINS
+		_get_income("Mailbox", "star_coins")
 	)
 	emit_signal(
 		"set_envelope_increase",
-		INCOME_FROM_MARKET_AREA_MAILBOX_ENVELOPES
+		_get_income("Mailbox", "envelopes")
 	)
 
 	if (OS.is_debug_build()):
@@ -348,11 +317,11 @@ func _activate_Market_Area_Pizza_Box(body):
 	emit_signal("activate_market_area_pizza_box", body)
 	emit_signal(
 		"set_pizza_slice_increase",
-		INCOME_FROM_MARKET_AREA_PIZZA_BOX_PIZZA_SLICES
+		_get_income("PizzaBox", "pizza_slices")
 	)
 	emit_signal(
 		"set_star_coin_increase",
-		INCOME_FROM_MARKET_AREA_PIZZA_BOX_STAR_COINS
+		_get_income("PizzaBox", "star_coins")
 	)
 
 	if (OS.is_debug_build()):
@@ -364,15 +333,15 @@ func _activate_Market_Area_Saw(body):
 	emit_signal("activate_market_area_saw", body)
 	emit_signal(
 		"set_star_coin_increase",
-		INCOME_FROM_MARKET_AREA_SAW_STAR_COINS
+		_get_income("Saw", "star_coins")
 	)
 	emit_signal(
 		"set_smile_increase",
-		INCOME_FROM_MARKET_AREA_SAW_SMILE
+		_get_income("Saw", "smile")
 	)
 	emit_signal(
 		"set_health_increase",
-		INCOME_FROM_MARKET_AREA_SAW_HEALTH
+		_get_income("Saw", "health")
 	)
 
 	if (OS.is_debug_build()):
@@ -384,15 +353,15 @@ func _activate_Market_Area_Valentine(body):
 	emit_signal("activate_market_area_valentine", body)
 	emit_signal(
 		"set_envelope_increase",
-		INCOME_FROM_MARKET_AREA_VALENTINE_ENVELOPES
+		_get_income("Valentine", "envelopes")
 	)
 	emit_signal(
 		"set_health_increase",
-		INCOME_FROM_MARKET_AREA_VALENTINE_HEALTH
+		_get_income("Valentine", "health")
 	)
 	emit_signal(
 		"set_smile_increase",
-		INCOME_FROM_MARKET_AREA_VALENTINE_SMILE
+		_get_income("Valentine", "smile")
 	)
 
 	if (OS.is_debug_build()):
