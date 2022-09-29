@@ -114,7 +114,7 @@ func _can_afford(costs):
 	]
 
 	if income_envelopes < 0:
-		var player_envelopes = player_variables.player_currency_envelopes
+		var player_envelopes = player_variables.player_currency_envelope
 		var remaining_envelopes = (
 			player_envelopes
 			+ income_envelopes
