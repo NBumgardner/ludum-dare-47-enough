@@ -60,6 +60,17 @@ var income_types = [
 	"star_coin"
 ]
 
+var income_types_limited = [
+	"health",
+	"smile"
+]
+
+var income_types_unlimited = [
+	"envelope",
+	"pizza_slice",
+	"star_coin"
+]
+
 # Player Movement methods
 func _physics_process(delta):
 	# Stop timer and moving if player is out of money or health
@@ -162,38 +173,26 @@ func _can_benefit(costs):
 		|| costs.size() != 7):
 		return false
 
-	var income_envelope = costs[
-		MarketAreaDatabase.market_area_index_income_envelope
-	]
-	var income_health = costs[
-		MarketAreaDatabase.market_area_index_income_health
-	]
-	var income_pizza_slice = costs[
-		MarketAreaDatabase.market_area_index_income_pizza_slice
-	]
-	var income_smile = costs[
-		MarketAreaDatabase.market_area_index_income_smile
-	]
-	var income_star_coin = costs[
-		MarketAreaDatabase.market_area_index_income_star_coin
-	]
-
 	# Check if any unlimited currency would be increased.
-	if income_envelope > 0 || income_pizza_slice > 0 || income_star_coin > 0:
-		can_benefit = true
+	for income_type in income_types_unlimited:
+		var income = _get_income(
+			costs[MarketAreaDatabase.market_area_index_title],
+			income_type
+		)
+		if income > 0:
+			can_benefit = true
 
 	# Check if any limited currency would be increased.
-	if income_health > 0:
-		can_benefit = can_benefit || (
-			player_variables.player_current_health
-			< player_variables.INITIAL_MAX_HEALTH
+	for income_type in income_types_limited:
+		var income = _get_income(
+			costs[MarketAreaDatabase.market_area_index_title],
+			income_type
 		)
-
-	if income_smile > 0:
-		can_benefit = can_benefit || (
-			player_variables.player_current_smile
-			< player_variables.INITIAL_MAX_SMILE
-		)
+		if income > 0:
+			can_benefit = can_benefit || (
+				_get_player_currency_amount(income_type)
+				< _get_player_currency_maximum(income_type)
+			)
 
 	return can_benefit
 
@@ -242,6 +241,38 @@ func _get_income(market_area_name, currency_name):
 	income = _get_cost(market_area_name)[income_index]
 
 	return income
+
+func _get_player_currency_amount(currency_name):
+	var amount = 0
+
+	match currency_name:
+		"envelope":
+			amount = player_variables.player_current_envelope
+		"health":
+			amount = player_variables.player_current_health
+		"pizza_slice":
+			amount = player_variables.player_current_pizza_slice
+		"smile":
+			amount = player_variables.player_current_smile
+		"star_coin":
+			amount = player_variables.player_current_star_coin
+		_:
+			return amount
+
+	return amount
+
+func _get_player_currency_maximum(currency_name):
+	var maximum = 0
+
+	match currency_name:
+		"health":
+			maximum = player_variables.INITIAL_MAX_HEALTH
+		"smile":
+			maximum = player_variables.INITIAL_MAX_SMILE
+		_:
+			return maximum
+
+	return maximum
 
 
 # Market Area Bed collision method

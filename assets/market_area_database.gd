@@ -89,3 +89,4 @@ const market_area_index_income_smile = 2
 const market_area_index_income_star_coin = 3
 const market_area_index_income_envelope = 4
 const market_area_index_income_pizza_slice = 5
+const market_area_index_title = 6
