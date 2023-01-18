@@ -28,11 +28,11 @@ signal activate_market_area_valentine(body)
 
 
 # 5 signals for failing to activate a market area which is too expensive to use.
-signal cannot_affort_market_area_bed(body)
-signal cannot_affort_market_area_house(body)
-signal cannot_affort_market_area_mailbox(body)
-signal cannot_affort_market_area_pizza_box(body)
-signal cannot_affort_market_area_valentine(body)
+signal cannot_afford_market_area_bed(body)
+signal cannot_afford_market_area_house(body)
+signal cannot_afford_market_area_mailbox(body)
+signal cannot_afford_market_area_pizza_box(body)
+signal cannot_afford_market_area_valentine(body)
 
 
 # 5 signals for increasing or decreasing a player resource.
@@ -249,7 +249,7 @@ func _on_Market_Area_Bed_body_entered(body):
 	if _can_afford_and_benefit(_get_cost("Bed")):
 		_activate_Market_Area_Bed(body)
 	else:
-		emit_signal("cannot_affort_market_area_bed", body)
+		emit_signal("cannot_afford_market_area_bed", body)
 
 
 # Market Area House collision method
@@ -257,7 +257,7 @@ func _on_Market_Area_House_body_entered(body):
 	if _can_afford_and_benefit(_get_cost("House")):
 		_activate_Market_Area_House(body)
 	else:
-		emit_signal("cannot_affort_market_area_house", body)
+		emit_signal("cannot_afford_market_area_house", body)
 
 
 # Market Area Mailbox collision method
@@ -265,7 +265,7 @@ func _on_Market_Area_Mailbox_body_entered(body):
 	if _can_afford_and_benefit(_get_cost("Mailbox")):
 		_activate_Market_Area_Mailbox(body)
 	else:
-		emit_signal("cannot_affort_market_area_mailbox", body)
+		emit_signal("cannot_afford_market_area_mailbox", body)
 
 
 # Market Area Pizza Box collision method
@@ -273,7 +273,7 @@ func _on_Market_Area_Pizza_Box_body_entered(body):
 	if _can_afford_and_benefit(_get_cost("PizzaBox")):
 		_activate_Market_Area_Pizza_Box(body)
 	else:
-		emit_signal("cannot_affort_market_area_pizza_box", body)
+		emit_signal("cannot_afford_market_area_pizza_box", body)
 
 
 # Market Area Saw collision method
@@ -286,7 +286,7 @@ func _on_Market_Area_Valentine_body_entered(body):
 	if _can_afford_and_benefit(_get_cost("Valentine")):
 		_activate_Market_Area_Valentine(body)
 	else:
-		emit_signal("cannot_affort_market_area_valentine", body)
+		emit_signal("cannot_afford_market_area_valentine", body)
 
 
 # Logic for Market Areas

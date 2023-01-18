@@ -95,17 +95,17 @@ func _show_market_area_valentine_active_checkmark():
 
 
 # Sound effect when player enters a market area the player cannot afford
-func _on_Player_cannot_affort_market_area_bed(_body):
+func _on_Player_cannot_afford_market_area_bed(_body):
 	$SFX_Cannot_Afford.play()
 
-func _on_Player_cannot_affort_market_area_house(_body):
+func _on_Player_cannot_afford_market_area_house(_body):
 	$SFX_Cannot_Afford.play()
 
-func _on_Player_cannot_affort_market_area_mailbox(_body):
+func _on_Player_cannot_afford_market_area_mailbox(_body):
 	$SFX_Cannot_Afford.play()
 
-func _on_Player_cannot_affort_market_area_pizza_box(_body):
+func _on_Player_cannot_afford_market_area_pizza_box(_body):
 	$SFX_Cannot_Afford.play()
 
-func _on_Player_cannot_affort_market_area_valentine(_body):
+func _on_Player_cannot_afford_market_area_valentine(_body):
 	$SFX_Cannot_Afford.play()
