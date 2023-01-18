@@ -31,6 +31,13 @@ signal set_star_coin_increase(amount)
 onready var game_over_conditions = get_node("/root/GameOverConditions")
 onready var player_variables = get_node("/root/PlayerVariables")
 
+var income_types = [
+	"envelope",
+	"health",
+	"pizza_slice",
+	"smile",
+	"star_coin"
+]
 
 # Player Movement methods
 func _physics_process(delta):
@@ -189,20 +196,31 @@ func _get_cost(market_area_name):
 	]
 
 func _get_income(market_area_name, currency_name):
+	var sanitized_currency_name = currency_name.to_lower()
 	var income = 0
 	var income_index = 0
 
-	match currency_name:
+	match sanitized_currency_name:
+		"envelope":
+			income_index = MarketAreaDatabase.market_area_index_income_envelopes
 		"envelopes":
 			income_index = MarketAreaDatabase.market_area_index_income_envelopes
 		"health":
 			income_index = MarketAreaDatabase.market_area_index_income_health
+		"pizza_slice":
+			income_index = (
+				MarketAreaDatabase.market_area_index_income_pizza_slices
+			)
 		"pizza_slices":
 			income_index = (
 				MarketAreaDatabase.market_area_index_income_pizza_slices
 			)
 		"smile":
 			income_index = MarketAreaDatabase.market_area_index_income_smile
+		"star_coin":
+			income_index = (
+				MarketAreaDatabase.market_area_index_income_star_coins
+			)
 		"star_coins":
 			income_index = (
 				MarketAreaDatabase.market_area_index_income_star_coins
@@ -260,113 +278,46 @@ func _on_Market_Area_Valentine_body_entered(body):
 		emit_signal("cannot_affort_market_area_valentine", body)
 
 
-# Logic for Market Area Bed
+# Logic for Market Areas
 func _activate_Market_Area_Bed(body):
-	emit_signal("activate_market_area_bed", body)
-	emit_signal(
-		"set_star_coin_increase",
-		_get_income("Bed", "star_coins")
-	)
-	emit_signal(
-		"set_health_increase",
-		_get_income("Bed", "health")
-	)
+	_activate_Market_Area("Bed", "bed", body)
 
-	if (OS.is_debug_build()):
-		print("Player entered " + str(body))
-
-
-# Logic for Market Area House
 func _activate_Market_Area_House(body):
-	emit_signal("activate_market_area_house", body)
-	emit_signal(
-		"set_envelope_increase",
-		_get_income("House", "envelopes")
-	)
-	emit_signal(
-		"set_pizza_slice_increase",
-		_get_income("House", "pizza_slices")
-	)
+	_activate_Market_Area("House", "house", body)
 
-	if (OS.is_debug_build()):
-		print("Player entered " + str(body))
-
-
-# Logic for Market Area Mailbox
 func _activate_Market_Area_Mailbox(body):
-	emit_signal("activate_market_area_mailbox", body)
-	emit_signal(
-		"set_health_increase",
-		_get_income("Mailbox", "health")
-	)
-	emit_signal(
-		"set_star_coin_increase",
-		_get_income("Mailbox", "star_coins")
-	)
-	emit_signal(
-		"set_envelope_increase",
-		_get_income("Mailbox", "envelopes")
-	)
+	_activate_Market_Area("Mailbox", "mailbox", body)
 
-	if (OS.is_debug_build()):
-		print("Player entered " + str(body))
-
-
-# Logic for Market Area Pizza Box
 func _activate_Market_Area_Pizza_Box(body):
-	emit_signal("activate_market_area_pizza_box", body)
-	emit_signal(
-		"set_pizza_slice_increase",
-		_get_income("PizzaBox", "pizza_slices")
-	)
-	emit_signal(
-		"set_star_coin_increase",
-		_get_income("PizzaBox", "star_coins")
-	)
+	_activate_Market_Area("PizzaBox", "pizza_box", body)
 
-	if (OS.is_debug_build()):
-		print("Player entered " + str(body))
-
-
-# Logic for Market Area Saw
 func _activate_Market_Area_Saw(body):
-	emit_signal("activate_market_area_saw", body)
-	emit_signal(
-		"set_star_coin_increase",
-		_get_income("Saw", "star_coins")
-	)
-	emit_signal(
-		"set_smile_increase",
-		_get_income("Saw", "smile")
-	)
-	emit_signal(
-		"set_health_increase",
-		_get_income("Saw", "health")
-	)
+	_activate_Market_Area("Saw", "saw", body)
 
-	if (OS.is_debug_build()):
-		print("Player entered " + str(body))
-
-
-# Logic for Market Area Valentine
 func _activate_Market_Area_Valentine(body):
-	emit_signal("activate_market_area_valentine", body)
-	emit_signal(
-		"set_envelope_increase",
-		_get_income("Valentine", "envelopes")
-	)
-	emit_signal(
-		"set_health_increase",
-		_get_income("Valentine", "health")
-	)
-	emit_signal(
-		"set_smile_increase",
-		_get_income("Valentine", "smile")
-	)
+	_activate_Market_Area("Valentine", "valentine", body)
+
+func _activate_Market_Area(
+	market_area_name,
+	activate_market_area_name,
+	body
+):
+	var _signal_name_activate = "activate_market_area_" + \
+		activate_market_area_name
+	emit_signal(_signal_name_activate, body)
+
+	for incomeType in income_types:
+		var _increase = _get_income(market_area_name, incomeType)
+		
+		if _increase != 0:
+			var _signal_name_income = "set_" + incomeType + "_increase"
+			emit_signal(
+				_signal_name_income,
+				_get_income(market_area_name, incomeType)
+			)
 
 	if (OS.is_debug_build()):
 		print("Player entered " + str(body))
-
 
 # Logic for passive loss of health while smile is empty and game is not over
 func _start_Tax_Timer():
