@@ -28,7 +28,7 @@ _global_script_class_icons={
 
 config/name="ludum-dare-47-enough"
 run/main_scene="res://main.tscn"
-config/icon="res://icon.png"
+config/icon="res://assets/icon.png"
 
 [autoload]
 
