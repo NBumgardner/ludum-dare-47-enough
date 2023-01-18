@@ -10,21 +10,42 @@ var is_player_asleep = true
 var motion = Vector2()
 var player_is_inside = []
 
+
+# 6 signals for activating a market area successfully.
+# Generated dynamically by function _activate_Market_Area.
+#warning-ignore:unused_signal
 signal activate_market_area_bed(body)
+#warning-ignore:unused_signal
 signal activate_market_area_house(body)
+#warning-ignore:unused_signal
 signal activate_market_area_mailbox(body)
+#warning-ignore:unused_signal
 signal activate_market_area_pizza_box(body)
+#warning-ignore:unused_signal
 signal activate_market_area_saw(body)
+#warning-ignore:unused_signal
 signal activate_market_area_valentine(body)
+
+
+# 5 signals for failing to activate a market area which is too expensive to use.
 signal cannot_affort_market_area_bed(body)
 signal cannot_affort_market_area_house(body)
 signal cannot_affort_market_area_mailbox(body)
 signal cannot_affort_market_area_pizza_box(body)
 signal cannot_affort_market_area_valentine(body)
+
+
+# 5 signals for increasing or decreasing a player resource.
+# Generated dynamically by function _activate_Market_Area.
+#warning-ignore:unused_signal
 signal set_envelope_increase(amount)
+#warning-ignore:unused_signal
 signal set_health_increase(amount)
+#warning-ignore:unused_signal
 signal set_pizza_slice_increase(amount)
+#warning-ignore:unused_signal
 signal set_smile_increase(amount)
+#warning-ignore:unused_signal
 signal set_star_coin_increase(amount)
 
 
@@ -67,7 +88,7 @@ func _apply_friction(amount):
 
 func _apply_movement(amount):
 	motion += amount
-	motion = motion.clamped(MAX_SPEED)
+	motion = motion.limit_length(MAX_SPEED)
 
 
 # Validate if Player May Use a Market Area

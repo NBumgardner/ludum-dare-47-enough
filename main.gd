@@ -33,22 +33,22 @@ func _on_Player_set_star_coin_increase(amount):
 	player_variables.player_currency_star_coin += amount
 
 
-func _on_Player_activate_market_area_bed(body):
+func _on_Player_activate_market_area_bed(_body):
 	_show_market_area_bed_active_checkmark()
 	$SFX_Add_2_Star_Coins.play()
 
 
-func _on_Player_activate_market_area_house(body):
+func _on_Player_activate_market_area_house(_body):
 	_show_market_area_house_active_checkmark()
 	$SFX_Add_2_Star_Coins.play()
 
 
-func _on_Player_activate_market_area_mailbox(body):
+func _on_Player_activate_market_area_mailbox(_body):
 	_show_market_area_mailbox_active_checkmark()
 	$SFX_Add_2_Star_Coins.play()
 
 
-func _on_Player_activate_market_area_pizza_box(body):
+func _on_Player_activate_market_area_pizza_box(_body):
 	_show_market_area_pizza_box_active_checkmark()
 	$SFX_Add_2_Star_Coins.play()
 
@@ -58,7 +58,7 @@ func _on_Player_activate_market_area_saw(_body):
 	$SFX_Add_2_Star_Coins.play()
 
 
-func _on_Player_activate_market_area_valentine(body):
+func _on_Player_activate_market_area_valentine(_body):
 	_show_market_area_valentine_active_checkmark()
 	$SFX_Add_2_Star_Coins.play()
 
@@ -95,17 +95,17 @@ func _show_market_area_valentine_active_checkmark():
 
 
 # Sound effect when player enters a market area the player cannot afford
-func _on_Player_cannot_affort_market_area_bed(body):
+func _on_Player_cannot_affort_market_area_bed(_body):
 	$SFX_Cannot_Afford.play()
 
-func _on_Player_cannot_affort_market_area_house(body):
+func _on_Player_cannot_affort_market_area_house(_body):
 	$SFX_Cannot_Afford.play()
 
-func _on_Player_cannot_affort_market_area_mailbox(body):
+func _on_Player_cannot_affort_market_area_mailbox(_body):
 	$SFX_Cannot_Afford.play()
 
-func _on_Player_cannot_affort_market_area_pizza_box(body):
+func _on_Player_cannot_affort_market_area_pizza_box(_body):
 	$SFX_Cannot_Afford.play()
 
-func _on_Player_cannot_affort_market_area_valentine(body):
+func _on_Player_cannot_affort_market_area_valentine(_body):
 	$SFX_Cannot_Afford.play()
