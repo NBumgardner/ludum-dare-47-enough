@@ -100,34 +100,34 @@ func _can_afford(costs):
 		|| costs.size() != 7):
 		return false
 
-	var income_envelopes = costs[
-		MarketAreaDatabase.market_area_index_income_envelopes
+	var income_envelope = costs[
+		MarketAreaDatabase.market_area_index_income_envelope
 	]
-	var income_pizza_slices = costs[
-		MarketAreaDatabase.market_area_index_income_pizza_slices
+	var income_pizza_slice = costs[
+		MarketAreaDatabase.market_area_index_income_pizza_slice
 	]
 	var income_star_coin = costs[
 		MarketAreaDatabase.market_area_index_income_star_coin
 	]
 
-	if income_envelopes < 0:
-		var player_envelopes = player_variables.player_currency_envelope
-		var remaining_envelopes = (
-			player_envelopes
-			+ income_envelopes
+	if income_envelope < 0:
+		var player_envelope = player_variables.player_currency_envelope
+		var remaining_envelope = (
+			player_envelope
+			+ income_envelope
 		)
 		can_afford = can_afford && (
-			remaining_envelopes >= 0
+			remaining_envelope >= 0
 		)
 
-	if income_pizza_slices < 0:
-		var player_pizza_slices = player_variables.player_currency_pizza_slice
-		var remaining_pizza_slices = (
-			player_pizza_slices
-			+ income_pizza_slices
+	if income_pizza_slice < 0:
+		var player_pizza_slice = player_variables.player_currency_pizza_slice
+		var remaining_pizza_slice = (
+			player_pizza_slice
+			+ income_pizza_slice
 		)
 		can_afford = can_afford && (
-			remaining_pizza_slices >= 0
+			remaining_pizza_slice >= 0
 		)
 
 	if income_star_coin < 0:
@@ -162,14 +162,14 @@ func _can_benefit(costs):
 		|| costs.size() != 7):
 		return false
 
-	var income_envelopes = costs[
-		MarketAreaDatabase.market_area_index_income_envelopes
+	var income_envelope = costs[
+		MarketAreaDatabase.market_area_index_income_envelope
 	]
 	var income_health = costs[
 		MarketAreaDatabase.market_area_index_income_health
 	]
-	var income_pizza_slices = costs[
-		MarketAreaDatabase.market_area_index_income_pizza_slices
+	var income_pizza_slice = costs[
+		MarketAreaDatabase.market_area_index_income_pizza_slice
 	]
 	var income_smile = costs[
 		MarketAreaDatabase.market_area_index_income_smile
@@ -179,7 +179,7 @@ func _can_benefit(costs):
 	]
 
 	# Check if any unlimited currency would be increased.
-	if income_envelopes > 0 || income_pizza_slices > 0 || income_star_coin > 0:
+	if income_envelope > 0 || income_pizza_slice > 0 || income_star_coin > 0:
 		can_benefit = true
 
 	# Check if any limited currency would be increased.
@@ -223,18 +223,12 @@ func _get_income(market_area_name, currency_name):
 
 	match sanitized_currency_name:
 		"envelope":
-			income_index = MarketAreaDatabase.market_area_index_income_envelopes
-		"envelopes":
-			income_index = MarketAreaDatabase.market_area_index_income_envelopes
+			income_index = MarketAreaDatabase.market_area_index_income_envelope
 		"health":
 			income_index = MarketAreaDatabase.market_area_index_income_health
 		"pizza_slice":
 			income_index = (
-				MarketAreaDatabase.market_area_index_income_pizza_slices
-			)
-		"pizza_slices":
-			income_index = (
-				MarketAreaDatabase.market_area_index_income_pizza_slices
+				MarketAreaDatabase.market_area_index_income_pizza_slice
 			)
 		"smile":
 			income_index = MarketAreaDatabase.market_area_index_income_smile

@@ -87,5 +87,5 @@ const DATA = {
 const market_area_index_income_health = 1
 const market_area_index_income_smile = 2
 const market_area_index_income_star_coin = 3
-const market_area_index_income_envelopes = 4
-const market_area_index_income_pizza_slices = 5
+const market_area_index_income_envelope = 4
+const market_area_index_income_pizza_slice = 5
