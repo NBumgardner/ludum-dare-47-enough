@@ -1,15 +1,19 @@
 [remap]
 
-importer="ogg_vorbis"
-type="AudioStreamOGGVorbis"
-path="res://.import/music-autumn.ogg-fe10ca7497ffb65b76df7851d5ec701c.oggstr"
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b2gwcp7vc4o4a"
+path="res://.godot/imported/music-autumn.ogg-fe10ca7497ffb65b76df7851d5ec701c.oggvorbisstr"
 
 [deps]
 
 source_file="res://assets/music-autumn.ogg"
-dest_files=[ "res://.import/music-autumn.ogg-fe10ca7497ffb65b76df7851d5ec701c.oggstr" ]
+dest_files=["res://.godot/imported/music-autumn.ogg-fe10ca7497ffb65b76df7851d5ec701c.oggvorbisstr"]
 
 [params]
 
 loop=true
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

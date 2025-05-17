@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
 const ACCELERATION = 1500
 const INCOME_FROM_MARKET_AREA_BED_HEALTH = 2
@@ -41,8 +41,8 @@ signal set_smile_increase(amount)
 signal set_star_coin_increase(amount)
 
 
-onready var game_over_conditions = get_node("/root/GameOverConditions")
-onready var player_variables = get_node("/root/PlayerVariables")
+@onready var game_over_conditions = get_node("/root/GameOverConditions")
+@onready var player_variables = get_node("/root/PlayerVariables")
 
 
 # Player Movement methods
@@ -63,7 +63,9 @@ func _physics_process(delta):
 		# Begin tax timer after the player begins to move.
 		_start_Tax_Timer()
 		_apply_movement(axis * ACCELERATION * delta)
-	motion = move_and_slide(motion)
+	set_velocity(motion)
+	move_and_slide()
+	motion = velocity
 
 func _apply_friction(amount):
 	if motion.length() > amount:
@@ -73,7 +75,7 @@ func _apply_friction(amount):
 
 func _apply_movement(amount):
 	motion += amount
-	motion = motion.clamped(MAX_SPEED)
+	motion = motion.limit_length(MAX_SPEED)
 
 func _get_input_axis():
 	var axis = Vector2.ZERO

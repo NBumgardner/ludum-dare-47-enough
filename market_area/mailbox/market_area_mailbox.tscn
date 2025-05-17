@@ -1,17 +1,17 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://assets/fonts/Roboto/Roboto-Medium.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://assets/fonts/Roboto/Roboto-Regular.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://market_area/collision-box_128x140.png" type="Texture" id=3]
-[ext_resource path="res://assets/checkmark.png" type="Texture" id=4]
-[ext_resource path="res://assets/heart.png" type="Texture" id=5]
-[ext_resource path="res://assets/star-coin.png" type="Texture" id=6]
-[ext_resource path="res://assets/envelope.png" type="Texture" id=7]
+[ext_resource path="res://assets/fonts/Roboto/Roboto-Medium.ttf" type="FontFile" id=1]
+[ext_resource path="res://assets/fonts/Roboto/Roboto-Regular.ttf" type="FontFile" id=2]
+[ext_resource path="res://market_area/collision-box_128x140.png" type="Texture2D" id=3]
+[ext_resource path="res://assets/checkmark.png" type="Texture2D" id=4]
+[ext_resource path="res://assets/heart.png" type="Texture2D" id=5]
+[ext_resource path="res://assets/star-coin.png" type="Texture2D" id=6]
+[ext_resource path="res://assets/envelope.png" type="Texture2D" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 63.5327, 71.5393 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="FontFile" id=2]
 size = 14
 font_data = ExtResource( 2 )
 
@@ -23,8 +23,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"points": PoolRealArray( 0.764706, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
+"points": PackedFloat32Array( 0.764706, -0.25, 0, 0.25, 0 ),
+"times": PackedFloat32Array( 0 )
 }
 tracks/1/type = "bezier"
 tracks/1/path = NodePath("ColorRect:color:g")
@@ -33,8 +33,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"points": PoolRealArray( 0.764706, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
+"points": PackedFloat32Array( 0.764706, -0.25, 0, 0.25, 0 ),
+"times": PackedFloat32Array( 0 )
 }
 tracks/2/type = "bezier"
 tracks/2/path = NodePath("ColorRect:color:b")
@@ -43,8 +43,8 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"points": PoolRealArray( 0.764706, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
+"points": PackedFloat32Array( 0.764706, -0.25, 0, 0.25, 0 ),
+"times": PackedFloat32Array( 0 )
 }
 tracks/3/type = "bezier"
 tracks/3/path = NodePath("ColorRect:color:a")
@@ -53,11 +53,11 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.5, 0.6, 1 )
+"points": PackedFloat32Array( 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PackedFloat32Array( 0, 0.5, 0.6, 1 )
 }
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="FontFile" id=4]
 size = 32
 font_data = ExtResource( 1 )
 
@@ -75,27 +75,27 @@ __meta__ = {
 }
 
 [node name="MarginContainer" type="MarginContainer" parent="TextureRect"]
-margin_left = 2.0
-margin_top = 1.0
-margin_right = 126.0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 126.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Vertical Sections" type="VBoxContainer" parent="TextureRect/MarginContainer"]
-margin_right = 124.0
-margin_bottom = 142.0
+offset_right = 124.0
+offset_bottom = 142.0
 size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Header Title" type="Label" parent="TextureRect/MarginContainer/Vertical Sections"]
-margin_right = 124.0
-margin_bottom = 17.0
+offset_right = 124.0
+offset_bottom = 17.0
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+theme_override_fonts/font = SubResource( 2 )
+theme_override_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Mailbox"
 align = 1
 autowrap = true
@@ -104,19 +104,19 @@ __meta__ = {
 }
 
 [node name="Explanation" type="Label" parent="TextureRect/MarginContainer/Vertical Sections"]
-margin_top = 21.0
-margin_right = 124.0
-margin_bottom = 38.0
+offset_top = 21.0
+offset_right = 124.0
+offset_bottom = 38.0
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+theme_override_fonts/font = SubResource( 2 )
+theme_override_colors/font_color = Color( 0, 0, 0, 1 )
 autowrap = true
 
 [node name="Active Checkmark" type="TextureRect" parent="TextureRect/MarginContainer/Vertical Sections"]
-margin_left = 54.0
-margin_top = 42.0
-margin_right = 70.0
-margin_bottom = 58.0
+offset_left = 54.0
+offset_top = 42.0
+offset_right = 70.0
+offset_bottom = 58.0
 size_flags_horizontal = 4
 texture = ExtResource( 4 )
 __meta__ = {
@@ -124,8 +124,8 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="TextureRect/MarginContainer/Vertical Sections/Active Checkmark"]
-margin_right = 16.0
-margin_bottom = 16.0
+offset_right = 16.0
+offset_bottom = 16.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color( 0.764706, 0.764706, 0.764706, 1 )
@@ -137,45 +137,45 @@ __meta__ = {
 "anims/Fade Checkmark Animation" = SubResource( 3 )
 
 [node name="Cost Icons" type="HBoxContainer" parent="TextureRect/MarginContainer/Vertical Sections"]
-margin_top = 62.0
-margin_right = 124.0
-margin_bottom = 100.0
+offset_top = 62.0
+offset_right = 124.0
+offset_bottom = 100.0
 
 [node name="Label" type="Label" parent="TextureRect/MarginContainer/Vertical Sections/Cost Icons"]
-margin_right = 11.0
-margin_bottom = 38.0
-custom_fonts/font = SubResource( 4 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+offset_right = 11.0
+offset_bottom = 38.0
+theme_override_fonts/font = SubResource( 4 )
+theme_override_colors/font_color = Color( 0, 0, 0, 1 )
 text = "-"
 valign = 1
 
 [node name="Health 1" type="TextureRect" parent="TextureRect/MarginContainer/Vertical Sections/Cost Icons"]
-margin_left = 15.0
-margin_right = 47.0
-margin_bottom = 38.0
+offset_left = 15.0
+offset_right = 47.0
+offset_bottom = 38.0
 texture = ExtResource( 5 )
 
 [node name="Star Coin 1" type="TextureRect" parent="TextureRect/MarginContainer/Vertical Sections/Cost Icons"]
-margin_left = 51.0
-margin_right = 83.0
-margin_bottom = 38.0
+offset_left = 51.0
+offset_right = 83.0
+offset_bottom = 38.0
 texture = ExtResource( 6 )
 
 [node name="Benefit Icons" type="HBoxContainer" parent="TextureRect/MarginContainer/Vertical Sections"]
-margin_top = 104.0
-margin_right = 124.0
-margin_bottom = 142.0
+offset_top = 104.0
+offset_right = 124.0
+offset_bottom = 142.0
 
 [node name="Label" type="Label" parent="TextureRect/MarginContainer/Vertical Sections/Benefit Icons"]
-margin_right = 36.0
-margin_bottom = 38.0
-custom_fonts/font = SubResource( 4 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+offset_right = 36.0
+offset_bottom = 38.0
+theme_override_fonts/font = SubResource( 4 )
+theme_override_colors/font_color = Color( 0, 0, 0, 1 )
 text = "+5"
 valign = 1
 
 [node name="Envelope 1" type="TextureRect" parent="TextureRect/MarginContainer/Vertical Sections/Benefit Icons"]
-margin_left = 40.0
-margin_right = 72.0
-margin_bottom = 38.0
+offset_left = 40.0
+offset_right = 72.0
+offset_bottom = 38.0
 texture = ExtResource( 7 )

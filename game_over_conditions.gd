@@ -7,7 +7,7 @@ const GAME_OVER_WIN_STAR_COIN_AMOUNT = 100
 const GAME_OVER_WIN_TEXT = "Congratulations!"
 
 
-onready var player_variables = get_node("/root/PlayerVariables")
+@onready var player_variables = get_node("/root/PlayerVariables")
 
 
 func get_game_over_text():
