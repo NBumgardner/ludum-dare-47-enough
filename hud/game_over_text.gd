@@ -1,7 +1,7 @@
 extends Label
 
 
-onready var game_over_conditions = get_node("/root/GameOverConditions")
+@onready var game_over_conditions = get_node("/root/GameOverConditions")
 
 
 func _process(_delta):
