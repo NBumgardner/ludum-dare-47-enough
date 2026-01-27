@@ -1,187 +1,183 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene format=3 uid="uid://cuuc0a2d8otyk"]
 
-[ext_resource path="res://assets/fonts/Roboto/Roboto-Medium.ttf" type="FontFile" id=1]
-[ext_resource path="res://assets/fonts/Roboto/Roboto-Regular.ttf" type="FontFile" id=2]
-[ext_resource path="res://assets/star-coin.png" type="Texture2D" id=3]
-[ext_resource path="res://market_area/collision-box_128x140.png" type="Texture2D" id=4]
-[ext_resource path="res://assets/checkmark.png" type="Texture2D" id=5]
-[ext_resource path="res://assets/smile.png" type="Texture2D" id=6]
-[ext_resource path="res://assets/heart.png" type="Texture2D" id=7]
+[ext_resource type="FontFile" uid="uid://3ck2cfwdr0x" path="res://assets/fonts/Roboto/Roboto-Medium.ttf" id="1"]
+[ext_resource type="FontFile" uid="uid://2h3iuuytjtsa" path="res://assets/fonts/Roboto/Roboto-Regular.ttf" id="2"]
+[ext_resource type="Texture2D" uid="uid://b1g370hhvnuic" path="res://assets/star-coin.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://6vddlyfsfyu" path="res://market_area/collision-box_128x140.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://cxfxo3uy8w6df" path="res://assets/checkmark.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://dw6q5e5eo0dvi" path="res://assets/smile.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://c27donru45m4o" path="res://assets/heart.png" id="7"]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 63.5327, 71.5393 )
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(127.0654, 143.0786)
 
-[sub_resource type="FontFile" id=2]
-size = 14
-font_data = ExtResource( 2 )
+[sub_resource type="FontFile" id="2"]
+fallbacks = Array[Font]([ExtResource("2")])
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id="3"]
 tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("ColorRect:color:r")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"points": PackedFloat32Array( 0.764706, -0.25, 0, 0.25, 0 ),
-"times": PackedFloat32Array( 0 )
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.764706, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
 }
 tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("ColorRect:color:g")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"points": PackedFloat32Array( 0.764706, -0.25, 0, 0.25, 0 ),
-"times": PackedFloat32Array( 0 )
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.764706, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
 }
 tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
 tracks/2/path = NodePath("ColorRect:color:b")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
 tracks/2/keys = {
-"points": PackedFloat32Array( 0.764706, -0.25, 0, 0.25, 0 ),
-"times": PackedFloat32Array( 0 )
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.764706, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
 }
 tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
 tracks/3/path = NodePath("ColorRect:color:a")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
 tracks/3/keys = {
-"points": PackedFloat32Array( 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
-"times": PackedFloat32Array( 0, 0.5, 0.6, 1 )
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 0.6, 1)
 }
 
-[sub_resource type="FontFile" id=4]
-size = 32
-font_data = ExtResource( 1 )
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a5gmm"]
+_data = {
+&"Fade Checkmark Animation": SubResource("3")
+}
 
-[node name="Node2D" type="Area2D"]
+[sub_resource type="FontFile" id="4"]
+fallbacks = Array[Font]([ExtResource("1")])
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[node name="Node2D" type="Area2D" unique_id=1923842272]
 z_index = -1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 65.054, 69.5895 )
-shape = SubResource( 1 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=964786995]
+position = Vector2(65.054, 69.5895)
+shape = SubResource("1")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-texture = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1332964453]
+texture = ExtResource("4")
 
-[node name="MarginContainer" type="MarginContainer" parent="TextureRect"]
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect" unique_id=1024599882]
+layout_mode = 0
 offset_left = 2.0
 offset_top = 1.0
 offset_right = 126.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="Vertical Sections" type="VBoxContainer" parent="TextureRect/MarginContainer"]
-offset_right = 124.0
-offset_bottom = 142.0
+[node name="Vertical Sections" type="VBoxContainer" parent="TextureRect/MarginContainer" unique_id=1674558043]
+layout_mode = 2
 size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="Header Title" type="Label" parent="TextureRect/MarginContainer/Vertical Sections"]
-offset_right = 124.0
-offset_bottom = 17.0
+[node name="Header Title" type="Label" parent="TextureRect/MarginContainer/Vertical Sections" unique_id=507579480]
+layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = SubResource( 2 )
-theme_override_colors/font_color = Color( 0, 0, 0, 1 )
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("2")
 text = "Saw"
-align = 1
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
+horizontal_alignment = 1
 
-[node name="Explanation" type="Label" parent="TextureRect/MarginContainer/Vertical Sections"]
-offset_top = 21.0
-offset_right = 124.0
-offset_bottom = 38.0
+[node name="Explanation" type="Label" parent="TextureRect/MarginContainer/Vertical Sections" unique_id=2004855453]
+layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = SubResource( 2 )
-theme_override_colors/font_color = Color( 0, 0, 0, 1 )
-autowrap = true
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("2")
 
-[node name="Active Checkmark" type="TextureRect" parent="TextureRect/MarginContainer/Vertical Sections"]
-offset_left = 54.0
-offset_top = 42.0
-offset_right = 70.0
-offset_bottom = 58.0
+[node name="Active Checkmark" type="TextureRect" parent="TextureRect/MarginContainer/Vertical Sections" unique_id=329760789]
+layout_mode = 2
 size_flags_horizontal = 4
-texture = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+texture = ExtResource("5")
 
-[node name="ColorRect" type="ColorRect" parent="TextureRect/MarginContainer/Vertical Sections/Active Checkmark"]
+[node name="ColorRect" type="ColorRect" parent="TextureRect/MarginContainer/Vertical Sections/Active Checkmark" unique_id=69394781]
+layout_mode = 0
 offset_right = 16.0
 offset_bottom = 16.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0.764706, 0.764706, 0.764706, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+color = Color(0.764706, 0.764706, 0.764706, 1)
 
-[node name="Fade In Out" type="AnimationPlayer" parent="TextureRect/MarginContainer/Vertical Sections/Active Checkmark"]
-"anims/Fade Checkmark Animation" = SubResource( 3 )
+[node name="Fade In Out" type="AnimationPlayer" parent="TextureRect/MarginContainer/Vertical Sections/Active Checkmark" unique_id=178785525]
+libraries/ = SubResource("AnimationLibrary_a5gmm")
 
-[node name="Cost Icons" type="HBoxContainer" parent="TextureRect/MarginContainer/Vertical Sections"]
-offset_top = 62.0
-offset_right = 124.0
-offset_bottom = 100.0
+[node name="Cost Icons" type="HBoxContainer" parent="TextureRect/MarginContainer/Vertical Sections" unique_id=191839764]
+layout_mode = 2
 
-[node name="Label" type="Label" parent="TextureRect/MarginContainer/Vertical Sections/Cost Icons"]
-offset_right = 11.0
-offset_bottom = 38.0
-theme_override_fonts/font = SubResource( 4 )
-theme_override_colors/font_color = Color( 0, 0, 0, 1 )
+[node name="Label" type="Label" parent="TextureRect/MarginContainer/Vertical Sections/Cost Icons" unique_id=1361769312]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("4")
 text = "-"
-valign = 1
+vertical_alignment = 1
 
-[node name="Health 1" type="TextureRect" parent="TextureRect/MarginContainer/Vertical Sections/Cost Icons"]
-offset_left = 15.0
-offset_right = 47.0
-offset_bottom = 38.0
-texture = ExtResource( 7 )
+[node name="Health 1" type="TextureRect" parent="TextureRect/MarginContainer/Vertical Sections/Cost Icons" unique_id=1002266937]
+layout_mode = 2
+texture = ExtResource("7")
 
-[node name="Smile 1" type="TextureRect" parent="TextureRect/MarginContainer/Vertical Sections/Cost Icons"]
-offset_left = 51.0
-offset_right = 83.0
-offset_bottom = 38.0
-texture = ExtResource( 6 )
+[node name="Smile 1" type="TextureRect" parent="TextureRect/MarginContainer/Vertical Sections/Cost Icons" unique_id=1172308110]
+layout_mode = 2
+texture = ExtResource("6")
 
-[node name="Benefit Icons" type="HBoxContainer" parent="TextureRect/MarginContainer/Vertical Sections"]
-offset_top = 104.0
-offset_right = 124.0
-offset_bottom = 142.0
+[node name="Benefit Icons" type="HBoxContainer" parent="TextureRect/MarginContainer/Vertical Sections" unique_id=1850893925]
+layout_mode = 2
 
-[node name="Label" type="Label" parent="TextureRect/MarginContainer/Vertical Sections/Benefit Icons"]
-offset_right = 18.0
-offset_bottom = 38.0
-theme_override_fonts/font = SubResource( 4 )
-theme_override_colors/font_color = Color( 0, 0, 0, 1 )
+[node name="Label" type="Label" parent="TextureRect/MarginContainer/Vertical Sections/Benefit Icons" unique_id=1292671803]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("4")
 text = "+"
-valign = 1
+vertical_alignment = 1
 
-[node name="Star Coin 1" type="TextureRect" parent="TextureRect/MarginContainer/Vertical Sections/Benefit Icons"]
-offset_left = 22.0
-offset_right = 54.0
-offset_bottom = 38.0
-texture = ExtResource( 3 )
+[node name="Star Coin 1" type="TextureRect" parent="TextureRect/MarginContainer/Vertical Sections/Benefit Icons" unique_id=335123009]
+layout_mode = 2
+texture = ExtResource("3")
 
-[node name="Star Coin 2" type="TextureRect" parent="TextureRect/MarginContainer/Vertical Sections/Benefit Icons"]
-offset_left = 58.0
-offset_right = 90.0
-offset_bottom = 38.0
-texture = ExtResource( 3 )
+[node name="Star Coin 2" type="TextureRect" parent="TextureRect/MarginContainer/Vertical Sections/Benefit Icons" unique_id=97473648]
+layout_mode = 2
+texture = ExtResource("3")
