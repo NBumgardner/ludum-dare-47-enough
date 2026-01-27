@@ -1,17 +1,17 @@
 [gd_scene format=3 uid="uid://dc34klg246m0u"]
 
 [ext_resource type="Script" uid="uid://1il1taxloybd" path="res://main.gd" id="1"]
-[ext_resource type="PackedScene" path="res://hud/hud.tscn" id="2"]
-[ext_resource type="PackedScene" path="res://player/player.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://ciapiphyir28b" path="res://hud/hud.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://dbagp57b81o6t" path="res://player/player.tscn" id="3"]
 [ext_resource type="AudioStream" uid="uid://b2gwcp7vc4o4a" path="res://assets/music-autumn.ogg" id="4"]
 [ext_resource type="AudioStream" uid="uid://dd3jtauamiiu3" path="res://assets/double-coin.wav" id="5"]
-[ext_resource type="PackedScene" path="res://market_area/saw/market_area_saw.tscn" id="6"]
-[ext_resource type="PackedScene" path="res://market_area/bed/market_area_bed.tscn" id="7"]
+[ext_resource type="PackedScene" uid="uid://cuuc0a2d8otyk" path="res://market_area/saw/market_area_saw.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://c47mcaehpx57c" path="res://market_area/bed/market_area_bed.tscn" id="7"]
 [ext_resource type="AudioStream" uid="uid://d1o4lmj33cjoy" path="res://assets/cannot-afford.wav" id="8"]
-[ext_resource type="PackedScene" path="res://market_area/mailbox/market_area_mailbox.tscn" id="9"]
-[ext_resource type="PackedScene" path="res://market_area/valentine/market_area_valentine.tscn" id="10"]
-[ext_resource type="PackedScene" path="res://market_area/house/market_area_house.tscn" id="11"]
-[ext_resource type="PackedScene" path="res://market_area/pizza_box/market_area_pizza_box.tscn" id="12"]
+[ext_resource type="PackedScene" uid="uid://2keobhkumtck" path="res://market_area/mailbox/market_area_mailbox.tscn" id="9"]
+[ext_resource type="PackedScene" uid="uid://c7vxhl04stlgs" path="res://market_area/valentine/market_area_valentine.tscn" id="10"]
+[ext_resource type="PackedScene" uid="uid://bgw0dbelj5qsc" path="res://market_area/house/market_area_house.tscn" id="11"]
+[ext_resource type="PackedScene" uid="uid://dyl0c1wveiow" path="res://market_area/pizza_box/market_area_pizza_box.tscn" id="12"]
 
 [node name="Main" type="Node" unique_id=508665826]
 script = ExtResource("1")
@@ -38,7 +38,6 @@ position = Vector2(835, 240)
 position = Vector2(510, 305)
 
 [node name="HUD" parent="." unique_id=1499984137 instance=ExtResource("2")]
-anchors_preset = 15
 
 [node name="Tax_Timer" type="Timer" parent="." unique_id=1465391825]
 autostart = true

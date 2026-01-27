@@ -21,7 +21,7 @@ Team members include:
 Coded using the [Godot](https://godotengine.org) game engine.
 
 The original game jam version, tagged as `ld47-submission` and [hosted on itch.io](https://nbumgardner.itch.io/ludum-dare-47-enough), runs on Godot version 3.2.
-The latest stable `master` code branch runs on Godot version 4.5.
+The latest stable `master` code branch runs on Godot version 4.6.
 
 ### License
 This game's code is open-source under the MIT License.
