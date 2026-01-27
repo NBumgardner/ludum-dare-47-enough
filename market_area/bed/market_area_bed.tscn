@@ -3,6 +3,7 @@
 [ext_resource type="FontFile" uid="uid://3ck2cfwdr0x" path="res://assets/fonts/Roboto/Roboto-Medium.ttf" id="1"]
 [ext_resource type="FontFile" uid="uid://2h3iuuytjtsa" path="res://assets/fonts/Roboto/Roboto-Regular.ttf" id="2"]
 [ext_resource type="Texture2D" uid="uid://b1g370hhvnuic" path="res://assets/star-coin.png" id="3"]
+[ext_resource type="Theme" uid="uid://cn2i804sa0rst" path="res://assets/themes/font_size_market_area_numbers_theme.tres" id="4_lq3b8"]
 [ext_resource type="Texture2D" uid="uid://c27donru45m4o" path="res://assets/heart.png" id="5"]
 [ext_resource type="Texture2D" uid="uid://6vddlyfsfyu" path="res://market_area/collision-box_128x140.png" id="6"]
 [ext_resource type="Texture2D" uid="uid://cxfxo3uy8w6df" path="res://assets/checkmark.png" id="7"]
@@ -100,6 +101,11 @@ cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
 cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
+cache/0/24/0/ascent = 0.0
+cache/0/24/0/descent = 0.0
+cache/0/24/0/underline_position = 0.0
+cache/0/24/0/underline_thickness = 0.0
+cache/0/24/0/scale = 1.0
 
 [node name="Node2D" type="Area2D" unique_id=361817441]
 z_index = -1
@@ -153,6 +159,7 @@ libraries/ = SubResource("AnimationLibrary_ib65x")
 
 [node name="Cost Icons" type="HBoxContainer" parent="TextureRect/MarginContainer/Vertical Sections" unique_id=2100192330]
 layout_mode = 2
+theme = ExtResource("4_lq3b8")
 
 [node name="Label" type="Label" parent="TextureRect/MarginContainer/Vertical Sections/Cost Icons" unique_id=1048842051]
 layout_mode = 2
@@ -167,6 +174,7 @@ texture = ExtResource("3")
 
 [node name="Benefit Icons" type="HBoxContainer" parent="TextureRect/MarginContainer/Vertical Sections" unique_id=86347704]
 layout_mode = 2
+theme = ExtResource("4_lq3b8")
 
 [node name="Label" type="Label" parent="TextureRect/MarginContainer/Vertical Sections/Benefit Icons" unique_id=588797226]
 layout_mode = 2

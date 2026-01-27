@@ -4,6 +4,7 @@
 [ext_resource type="FontFile" uid="uid://2h3iuuytjtsa" path="res://assets/fonts/Roboto/Roboto-Regular.ttf" id="2"]
 [ext_resource type="Texture2D" uid="uid://6vddlyfsfyu" path="res://market_area/collision-box_128x140.png" id="3"]
 [ext_resource type="Texture2D" uid="uid://cxfxo3uy8w6df" path="res://assets/checkmark.png" id="4"]
+[ext_resource type="Theme" uid="uid://cn2i804sa0rst" path="res://assets/themes/font_size_market_area_numbers_theme.tres" id="4_cj483"]
 [ext_resource type="Texture2D" uid="uid://c27donru45m4o" path="res://assets/heart.png" id="5"]
 [ext_resource type="Texture2D" uid="uid://b1g370hhvnuic" path="res://assets/star-coin.png" id="6"]
 [ext_resource type="Texture2D" uid="uid://dp000fgvx38bi" path="res://assets/envelope.png" id="7"]
@@ -13,6 +14,9 @@ size = Vector2(127.0654, 143.0786)
 
 [sub_resource type="FontFile" id="2"]
 fallbacks = Array[Font]([ExtResource("2")])
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/variation_coordinates = {}
 cache/0/face_index = 0
 cache/0/embolden = 0.0
@@ -81,6 +85,9 @@ _data = {
 
 [sub_resource type="FontFile" id="4"]
 fallbacks = Array[Font]([ExtResource("1")])
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/variation_coordinates = {}
 cache/0/face_index = 0
 cache/0/embolden = 0.0
@@ -95,6 +102,56 @@ cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
 cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
+cache/0/32/0/ascent = 0.0
+cache/0/32/0/descent = 0.0
+cache/0/32/0/underline_position = 0.0
+cache/0/32/0/underline_thickness = 0.0
+cache/0/32/0/scale = 1.0
+cache/0/31/0/ascent = 0.0
+cache/0/31/0/descent = 0.0
+cache/0/31/0/underline_position = 0.0
+cache/0/31/0/underline_thickness = 0.0
+cache/0/31/0/scale = 1.0
+cache/0/30/0/ascent = 0.0
+cache/0/30/0/descent = 0.0
+cache/0/30/0/underline_position = 0.0
+cache/0/30/0/underline_thickness = 0.0
+cache/0/30/0/scale = 1.0
+cache/0/29/0/ascent = 0.0
+cache/0/29/0/descent = 0.0
+cache/0/29/0/underline_position = 0.0
+cache/0/29/0/underline_thickness = 0.0
+cache/0/29/0/scale = 1.0
+cache/0/28/0/ascent = 0.0
+cache/0/28/0/descent = 0.0
+cache/0/28/0/underline_position = 0.0
+cache/0/28/0/underline_thickness = 0.0
+cache/0/28/0/scale = 1.0
+cache/0/27/0/ascent = 0.0
+cache/0/27/0/descent = 0.0
+cache/0/27/0/underline_position = 0.0
+cache/0/27/0/underline_thickness = 0.0
+cache/0/27/0/scale = 1.0
+cache/0/26/0/ascent = 0.0
+cache/0/26/0/descent = 0.0
+cache/0/26/0/underline_position = 0.0
+cache/0/26/0/underline_thickness = 0.0
+cache/0/26/0/scale = 1.0
+cache/0/25/0/ascent = 0.0
+cache/0/25/0/descent = 0.0
+cache/0/25/0/underline_position = 0.0
+cache/0/25/0/underline_thickness = 0.0
+cache/0/25/0/scale = 1.0
+cache/0/24/0/ascent = 0.0
+cache/0/24/0/descent = 0.0
+cache/0/24/0/underline_position = 0.0
+cache/0/24/0/underline_thickness = 0.0
+cache/0/24/0/scale = 1.0
+cache/0/23/0/ascent = 0.0
+cache/0/23/0/descent = 0.0
+cache/0/23/0/underline_position = 0.0
+cache/0/23/0/underline_thickness = 0.0
+cache/0/23/0/scale = 1.0
 
 [node name="Node2D" type="Area2D" unique_id=628502714]
 z_index = -1
@@ -148,6 +205,7 @@ libraries/ = SubResource("AnimationLibrary_l5rtw")
 
 [node name="Cost Icons" type="HBoxContainer" parent="TextureRect/MarginContainer/Vertical Sections" unique_id=1671794598]
 layout_mode = 2
+theme = ExtResource("4_cj483")
 
 [node name="Label" type="Label" parent="TextureRect/MarginContainer/Vertical Sections/Cost Icons" unique_id=1790782746]
 layout_mode = 2
@@ -166,6 +224,7 @@ texture = ExtResource("6")
 
 [node name="Benefit Icons" type="HBoxContainer" parent="TextureRect/MarginContainer/Vertical Sections" unique_id=462920735]
 layout_mode = 2
+theme = ExtResource("4_cj483")
 
 [node name="Label" type="Label" parent="TextureRect/MarginContainer/Vertical Sections/Benefit Icons" unique_id=509485317]
 layout_mode = 2

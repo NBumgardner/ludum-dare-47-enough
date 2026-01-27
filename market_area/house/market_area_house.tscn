@@ -4,6 +4,7 @@
 [ext_resource type="FontFile" uid="uid://2h3iuuytjtsa" path="res://assets/fonts/Roboto/Roboto-Regular.ttf" id="2"]
 [ext_resource type="Texture2D" uid="uid://cwb3e2bcbiu1w" path="res://assets/pizza-slice.png" id="3"]
 [ext_resource type="Texture2D" uid="uid://dp000fgvx38bi" path="res://assets/envelope.png" id="4"]
+[ext_resource type="Theme" uid="uid://cn2i804sa0rst" path="res://assets/themes/font_size_market_area_numbers_theme.tres" id="4_4spwd"]
 [ext_resource type="Texture2D" uid="uid://6vddlyfsfyu" path="res://market_area/collision-box_128x140.png" id="5"]
 [ext_resource type="Texture2D" uid="uid://cxfxo3uy8w6df" path="res://assets/checkmark.png" id="6"]
 
@@ -100,6 +101,11 @@ cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
 cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
+cache/0/24/0/ascent = 0.0
+cache/0/24/0/descent = 0.0
+cache/0/24/0/underline_position = 0.0
+cache/0/24/0/underline_thickness = 0.0
+cache/0/24/0/scale = 1.0
 
 [node name="Node2D" type="Area2D" unique_id=1657773658]
 z_index = -1
@@ -153,6 +159,7 @@ libraries/ = SubResource("AnimationLibrary_bni2o")
 
 [node name="Cost Icons" type="HBoxContainer" parent="TextureRect/MarginContainer/Vertical Sections" unique_id=820686101]
 layout_mode = 2
+theme = ExtResource("4_4spwd")
 
 [node name="Label" type="Label" parent="TextureRect/MarginContainer/Vertical Sections/Cost Icons" unique_id=1536403703]
 layout_mode = 2
@@ -167,6 +174,7 @@ texture = ExtResource("4")
 
 [node name="Benefit Icons" type="HBoxContainer" parent="TextureRect/MarginContainer/Vertical Sections" unique_id=691044206]
 layout_mode = 2
+theme = ExtResource("4_4spwd")
 
 [node name="Label" type="Label" parent="TextureRect/MarginContainer/Vertical Sections/Benefit Icons" unique_id=2000706258]
 layout_mode = 2
