@@ -106,6 +106,26 @@ cache/0/24/0/descent = 0.0
 cache/0/24/0/underline_position = 0.0
 cache/0/24/0/underline_thickness = 0.0
 cache/0/24/0/scale = 1.0
+cache/0/25/0/ascent = 0.0
+cache/0/25/0/descent = 0.0
+cache/0/25/0/underline_position = 0.0
+cache/0/25/0/underline_thickness = 0.0
+cache/0/25/0/scale = 1.0
+cache/0/26/0/ascent = 0.0
+cache/0/26/0/descent = 0.0
+cache/0/26/0/underline_position = 0.0
+cache/0/26/0/underline_thickness = 0.0
+cache/0/26/0/scale = 1.0
+cache/0/27/0/ascent = 0.0
+cache/0/27/0/descent = 0.0
+cache/0/27/0/underline_position = 0.0
+cache/0/27/0/underline_thickness = 0.0
+cache/0/27/0/scale = 1.0
+cache/0/28/0/ascent = 0.0
+cache/0/28/0/descent = 0.0
+cache/0/28/0/underline_position = 0.0
+cache/0/28/0/underline_thickness = 0.0
+cache/0/28/0/scale = 1.0
 
 [node name="Node2D" type="Area2D" unique_id=1850960190]
 z_index = -1
@@ -163,10 +183,10 @@ theme = ExtResource("4_deqxg")
 
 [node name="Label" type="Label" parent="TextureRect/MarginContainer/Vertical Sections/Cost Icons" unique_id=1003339946]
 layout_mode = 2
+size_flags_vertical = 8
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("4")
 text = "-8"
-vertical_alignment = 1
 
 [node name="Pizza Slice 1" type="TextureRect" parent="TextureRect/MarginContainer/Vertical Sections/Cost Icons" unique_id=1911798812]
 layout_mode = 2
@@ -178,6 +198,7 @@ theme = ExtResource("4_deqxg")
 
 [node name="Label" type="Label" parent="TextureRect/MarginContainer/Vertical Sections/Benefit Icons" unique_id=560490516]
 layout_mode = 2
+size_flags_vertical = 8
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("4")
 text = "+20"

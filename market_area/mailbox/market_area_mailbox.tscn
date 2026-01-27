@@ -209,6 +209,7 @@ theme = ExtResource("4_cj483")
 
 [node name="Label" type="Label" parent="TextureRect/MarginContainer/Vertical Sections/Cost Icons" unique_id=1790782746]
 layout_mode = 2
+size_flags_vertical = 8
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("4")
 text = "-"
@@ -228,6 +229,7 @@ theme = ExtResource("4_cj483")
 
 [node name="Label" type="Label" parent="TextureRect/MarginContainer/Vertical Sections/Benefit Icons" unique_id=509485317]
 layout_mode = 2
+size_flags_vertical = 8
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("4")
 text = "+5"

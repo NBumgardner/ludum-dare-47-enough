@@ -163,6 +163,7 @@ theme = ExtResource("4_lq3b8")
 
 [node name="Label" type="Label" parent="TextureRect/MarginContainer/Vertical Sections/Cost Icons" unique_id=1048842051]
 layout_mode = 2
+size_flags_vertical = 8
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("4")
 text = "-"
@@ -178,6 +179,7 @@ theme = ExtResource("4_lq3b8")
 
 [node name="Label" type="Label" parent="TextureRect/MarginContainer/Vertical Sections/Benefit Icons" unique_id=588797226]
 layout_mode = 2
+size_flags_vertical = 8
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("4")
 text = "+"
