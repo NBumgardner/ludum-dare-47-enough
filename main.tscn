@@ -13,6 +13,12 @@
 [ext_resource type="PackedScene" uid="uid://bgw0dbelj5qsc" path="res://market_area/house/market_area_house.tscn" id="11"]
 [ext_resource type="PackedScene" uid="uid://dyl0c1wveiow" path="res://market_area/pizza_box/market_area_pizza_box.tscn" id="12"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dg77c"]
+size = Vector2(20, 670)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ycdy4"]
+size = Vector2(1172, 20)
+
 [node name="Main" type="Node" unique_id=508665826]
 script = ExtResource("1")
 
@@ -58,11 +64,30 @@ stream = ExtResource("8")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 40.0
-offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 color = Color(0.184314, 0.215686, 0.184314, 1)
+
+[node name="LevelBorders" type="StaticBody2D" parent="." unique_id=959160742]
+visible = false
+
+[node name="BorderLeft" type="CollisionShape2D" parent="LevelBorders" unique_id=1407136792]
+position = Vector2(0, 325)
+shape = SubResource("RectangleShape2D_dg77c")
+
+[node name="BorderRight" type="CollisionShape2D" parent="LevelBorders" unique_id=2063083994]
+position = Vector2(1152, 325)
+shape = SubResource("RectangleShape2D_dg77c")
+
+[node name="BorderTop" type="CollisionShape2D" parent="LevelBorders" unique_id=1199935184]
+position = Vector2(576, 0)
+shape = SubResource("RectangleShape2D_ycdy4")
+
+[node name="BorderBottom" type="CollisionShape2D" parent="LevelBorders" unique_id=1386697912]
+position = Vector2(576, 650)
+shape = SubResource("RectangleShape2D_ycdy4")
 
 [connection signal="body_entered" from="Market_Area_Bed" to="Player" method="_on_Market_Area_Bed_body_entered"]
 [connection signal="body_entered" from="Market_Area_House" to="Player" method="_on_Market_Area_House_body_entered"]
